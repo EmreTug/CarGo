@@ -4,6 +4,8 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "PratikKargo.Android.dll" comes first in this list. */
 		"PratikKargo.Android.dll",
 		"FormsViewGroup.dll",
+		"Google.Api.CommonProtos.dll",
+		"Google.Protobuf.dll",
 		"Newtonsoft.Json.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Geolocator.dll",

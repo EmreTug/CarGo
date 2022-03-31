@@ -13,13 +13,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.gms.maps">
-
-    <!-- Include required permissions for Google Maps API to run. -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.gms">
     <uses-sdk android:minSdkVersion="14" />
-    <application />
+
+    <application>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    </application>
+
 </manifest>
