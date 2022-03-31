@@ -65,7 +65,7 @@
           "lib/netstandard2.0/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -393,10 +393,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/5.0.0.2012": {
-      "sha512": "Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
+    "Xamarin.Forms/5.0.0.2401": {
+      "sha512": "fk/V8QWjeyo8UXcsqsNRMd6o1H5PBfyXYm97nxvhMsJIdeqDgfRWyIsSurM8uLGLQGdQP23R+hHj7vcTSo2UjQ==",
       "type": "package",
-      "path": "xamarin.forms/5.0.0.2012",
+      "path": "xamarin.forms/5.0.0.2401",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -605,7 +605,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.5.0.0.2012.nupkg.sha512",
+        "xamarin.forms.5.0.0.2401.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -636,7 +636,7 @@
       "Newtonsoft.Json >= 13.0.1",
       "Xam.Plugin.Geolocator >= 4.5.0.6",
       "Xamarin.Essentials >= 1.6.1",
-      "Xamarin.Forms >= 5.0.0.2012",
+      "Xamarin.Forms >= 5.0.0.2401",
       "Xamarin.Forms.GoogleMaps >= 3.3.0"
     ]
   },
@@ -648,11 +648,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj",
+      "projectUniqueName": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj",
       "projectName": "PratikKargo",
-      "projectPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj",
+      "projectPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj",
       "packagesPath": "C:\\Users\\Msi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\obj\\",
+      "outputPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -707,7 +707,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[5.0.0.2012, )"
+            "version": "[5.0.0.2401, )"
           },
           "Xamarin.Forms.GoogleMaps": {
             "target": "Package",

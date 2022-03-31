@@ -1263,7 +1263,7 @@
           "Newtonsoft.Json": "13.0.1",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
         "compile": {
@@ -2745,11 +2745,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.Android\\PratikKargo.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.Android\\PratikKargo.Android.csproj",
       "projectName": "PratikKargo.Android",
-      "projectPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.Android\\PratikKargo.Android.csproj",
+      "projectPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.Android\\PratikKargo.Android.csproj",
       "packagesPath": "C:\\Users\\Msi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.Android\\obj\\",
+      "outputPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2772,8 +2772,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj": {
-              "projectPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj"
+            "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj": {
+              "projectPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj"
             }
           }
         }

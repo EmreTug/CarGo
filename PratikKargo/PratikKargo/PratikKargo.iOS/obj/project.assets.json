@@ -226,7 +226,7 @@
           "Newtonsoft.Json": "13.0.1",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
         "compile": {
@@ -462,7 +462,7 @@
           "Newtonsoft.Json": "13.0.1",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
         "compile": {
@@ -698,7 +698,7 @@
           "Newtonsoft.Json": "13.0.1",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
         "compile": {
@@ -934,7 +934,7 @@
           "Newtonsoft.Json": "13.0.1",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
         "compile": {
@@ -1411,11 +1411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\PratikKargo.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\PratikKargo.iOS.csproj",
       "projectName": "PratikKargo.iOS",
-      "projectPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\PratikKargo.iOS.csproj",
+      "projectPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\PratikKargo.iOS.csproj",
       "packagesPath": "C:\\Users\\Msi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\obj\\",
+      "outputPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1438,8 +1438,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj": {
-              "projectPath": "C:\\Users\\Msi\\source\\repos\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj"
+            "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj": {
+              "projectPath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo\\PratikKargo.csproj"
             }
           }
         }
@@ -1474,5 +1474,20 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n PratikKargo.iOS -> PratikKargo -> Xamarin.Forms (>= 5.0.0.2401) \r\n PratikKargo.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }
