@@ -111,7 +111,6 @@ namespace PratikKargo
 
         private List<Ant> ant_list;
         public static List<City> city_list;
-        private List<City> rotation_city_list;
 
         public static List<int> best_tour_list;
         private double best_tour_length = -1;

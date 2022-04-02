@@ -28,7 +28,7 @@ namespace PratikKargo
             ApplyMapTheme();
         }
 
-        private void ApplyMapTheme()
+        private  void ApplyMapTheme()
         {
             var assembly = typeof(MapPage).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream($"PratikKargo.MapResources.MapTheme.json");
@@ -39,20 +39,31 @@ namespace PratikKargo
                 themeFile = reader.ReadToEnd();
                 map.MapStyle = MapStyle.FromJson(themeFile);
             }
-
+           
             //This is my actual location as of now we are taking it from google maps. But you have to use location plugin to generate latitude and longitude.
-            var positions = new Position(38.69301742336234, 35.549143170636405);//Latitude, Longitude
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(positions, Distance.FromMeters(1500)));
+            //var locator = CrossGeolocator.Current;
+            //locator.DesiredAccuracy = 50;
 
-          
+            //var position = await locator.GetPositionAsync();
+            //Position position1 = new Position(position.Latitude, position.Longitude);
+            //map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(1500)));
+   //         await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
+   //new CameraPosition(
+   //    new Position(position1.Latitude, position1.Longitude), // center
+   //    17d, // zoom
+   //    45d, // bearing(rotation)
+   //    60d)));
+
+
+
         }
 
-      
-    
 
- 
 
-     
+
+
+
+
 
         double headernothvalue;
         private void Compass_ReadingChanged(object sender, CompassChangedEventArgs e)
@@ -61,24 +72,11 @@ namespace PratikKargo
             headernothvalue = data.HeadingMagneticNorth;
         }
 
-        void map_PinDragStart(System.Object sender, Xamarin.Forms.GoogleMaps.PinDragEventArgs e)
-        {
+  
 
+ 
 
-        }
-
-        async void map_PinDragEnd(System.Object sender, Xamarin.Forms.GoogleMaps.PinDragEventArgs e)
-        {
-            var positions = new Position(e.Pin.Position.Latitude, e.Pin.Position.Longitude);//Latitude, Longitude
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(positions, Distance.FromMeters(500)));
-            await App.Current.MainPage.DisplayAlert("Alert", "Pick up location : Latitude :" + e.Pin.Position.Latitude + " Longitude :" + e.Pin.Position.Longitude, "Ok");
-        }
-
-        async void PickupButton_Clicked(System.Object sender, System.EventArgs e)
-        {
-           
-        }
-
+ 
         int nokta = 0;
         async void TrackPath_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -175,7 +173,7 @@ namespace PratikKargo
                 }
                 map.Polylines.Add(polyline);
 
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromMiles(0.50f)));
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromMiles(0.80f)));
 
                 var pin = new Xamarin.Forms.GoogleMaps.Pin
                 {
@@ -190,14 +188,14 @@ namespace PratikKargo
                 map.Pins.Add(pin);
                 var positions = new Xamarin.Forms.GoogleMaps.Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude);
 
-                CameraPosition cameraPosition = new CameraPosition(positions, 45, 10, 0);
+                CameraPosition cameraPosition = new CameraPosition(positions, 45, 0, 0);
 
                 CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
 
                 await map.MoveCamera(cameraUpdate);
                 var positionIndex = 1;
 
-                Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
                 {
                     if (pathcontent.Count > positionIndex)
                     {
@@ -227,15 +225,38 @@ namespace PratikKargo
             {
                 cPin.Position = new Xamarin.Forms.GoogleMaps.Position(position.Latitude, position.Longitude);
                 cPin.Icon = (Device.RuntimePlatform == Device.Android) ? BitmapDescriptorFactory.FromBundle("CarPins.png") : BitmapDescriptorFactory.FromView(new Image() { Source = "CarPins.png", WidthRequest = 25, HeightRequest = 25 });
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(cPin.Position, Distance.FromMeters(200)));
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(cPin.Position, Distance.FromMeters(300)));
                 var previousPosition = map.Polylines?.FirstOrDefault()?.Positions?.FirstOrDefault();
                 map.Polylines?.FirstOrDefault()?.Positions?.Remove(previousPosition.Value);
+            
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 50;
+
+    //            var positionn = await locator.GetPositionAsync();
+        
+    //            await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
+    //new CameraPosition(
+    //    new Position(position.Latitude, position.Longitude), // center
+    //    17d, // zoom
+    //    45d, // bearing(rotation)
+    //    30d)));
             }
             else
             {
                 map.Polylines?.FirstOrDefault()?.Positions?.Clear();
             }
         }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

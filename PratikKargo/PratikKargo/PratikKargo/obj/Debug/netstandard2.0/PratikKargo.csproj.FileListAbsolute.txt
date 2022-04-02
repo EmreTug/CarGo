@@ -28,7 +28,6 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.csproj.CoreCompileInputs.cache
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\PratikKargo.deps.json
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\PratikKargo.dll
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\ref\PratikKargo.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\PratikKargo.pdb
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\Mono.Android.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\bin\Debug\netstandard2.0\Mono.Android.pdb
@@ -38,3 +37,5 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\ref\PratikKargo.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.pdb
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.csproj.CopyComplete
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\refint\PratikKargo.dll

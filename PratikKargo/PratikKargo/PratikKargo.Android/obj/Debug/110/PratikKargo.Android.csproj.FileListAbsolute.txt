@@ -698,7 +698,6 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\bin\Debug\com.companyname.pratikkargo-Signed.apk.idsig
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\bin\Debug\PratikKargo.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\bin\Debug\PratikKargo.pdb
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\PratikKargo.Android.csproj.CopyComplete
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\PratikKargo.Android.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\PratikKargo.Android.pdb
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\bin\com.companyname.pratikkargo.apk
@@ -1326,5 +1325,6 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\assets\System.Buffers.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\assets\System.Memory.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\assets\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\jl\a147f520-1862-4839-bbc5-306e0fdaf075.jar
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\proguard\a04f334e-f9cc-49d8-b5bc-546627acbca6.cfg
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\PratikKargo.Android.csproj.CopyComplete
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\jl\da625a2a-dfbd-43ef-8a6f-c8a2f3c509b5.jar
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\proguard\e4f5f0a8-2e86-40f5-aba8-60df7a21c676.cfg

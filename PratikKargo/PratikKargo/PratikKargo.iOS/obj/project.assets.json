@@ -1821,7 +1821,7 @@
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n PratikKargo.iOS -> PratikKargo -> Xamarin.Forms (>= 5.0.0.2401) \r\n PratikKargo.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "message": "Xamarin.Forms paketi için 5.0.0.2401 sürümünden 5.0.0.2012 sürümüne düşürme algılandı. Farklı bir sürüm seçmek için doğrudan projeden pakete başvurun. \r\n PratikKargo.iOS -> PratikKargo -> Xamarin.Forms (>= 5.0.0.2401) \r\n PratikKargo.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
       "libraryId": "Xamarin.Forms",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
