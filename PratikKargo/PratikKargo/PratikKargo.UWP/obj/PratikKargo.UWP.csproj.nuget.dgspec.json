@@ -45,9 +45,17 @@
       "frameworks": {
         "uap10.0.16299": {
           "dependencies": {
+            "CardsView": {
+              "target": "Package",
+              "version": "[2.4.9, )"
+            },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.12, )"
+            },
+            "TouchView": {
+              "target": "Package",
+              "version": "[4.1.30, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -135,6 +143,14 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "CardsView": {
+              "target": "Package",
+              "version": "[2.4.9, )"
+            },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.0.7, )"
+            },
             "Google.Api.CommonProtos": {
               "target": "Package",
               "version": "[2.5.0, )"
@@ -148,6 +164,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "TouchView": {
+              "target": "Package",
+              "version": "[4.1.30, )"
             },
             "Xam.Plugin.Geolocator": {
               "target": "Package",

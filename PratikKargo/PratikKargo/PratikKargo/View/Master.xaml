@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PratikKargo.View.Master"
+             Title="Master"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="profil" x:Name="btnProfile" TextColor="Black" BackgroundColor="White" Clicked="btnProfile_Clicked"></Button>
+            <Button Text="oturumu kapat" x:Name="btnLogOut" TextColor="Black" BackgroundColor="White" Clicked="btnLogOut_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

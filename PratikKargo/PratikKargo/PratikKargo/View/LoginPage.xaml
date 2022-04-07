@@ -2,73 +2,87 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PratikKargo.View.LoginPage">
-    <ContentPage.BindingContext>
-        <viewModels:LoginViewModel/>
-    </ContentPage.BindingContext>
-    <StackLayout Padding="0" BackgroundColor="LightGray">
-        <Grid>
-            <ActivityIndicator x:Name="activity"  
-                       IsRunning="False"  
-                       IsEnabled="False"  
-                       IsVisible="False"  
-                       Color="Blue"  
-                       BackgroundColor="Transparent"/>
+             x:Class="PratikKargo.View.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <Grid Padding="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72" />
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="32" />
+            </Grid.ColumnDefinitions>
 
-            <StackLayout Padding="0" Margin="0">
-                <Frame BackgroundColor="LightPink" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                    <Image Source="kargo.jpeg" Aspect="AspectFill" Margin="0"/>
-                </Frame>
-            </StackLayout>
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Grid.ColumnSpan="3"
+                Text="Login"
+                Style="{StaticResource LabelTitle}"
+            />
 
-            <StackLayout Margin="15,110,15,0">
+            
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="480" HorizontalOptions="FillAndExpand" CornerRadius="30">
+            <Image 
+                Source="User" 
+                Grid.Row="1" 
+                Grid.ColumnSpan="4"  
+            />
 
-                    <StackLayout>
-                        <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="SIGN IN" FontSize="Medium" TextColor="Black" FontAttributes="Bold"></Label>
-                        </StackLayout>
+            <Entry 
+                Grid.Row="2" 
+                Grid.ColumnSpan="4"
+                Placeholder="Username or email address" 
+                Text="{Binding UserName}"
+                Style="{StaticResource Entry}"
+            />
 
-                        <StackLayout Margin="0,25,0,0">
-                            <Frame BackgroundColor="White" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="15" HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="AliceBlue" HeightRequest="35" WidthRequest="35" CornerRadius="15" HorizontalOptions="Start" Margin="7" Padding="0">
-                                        <Image Source="user.png" Aspect="AspectFill" Margin="0"/>
-                                    </Frame>
-                                    <Entry HeightRequest="30"  x:Name="userName" BackgroundColor="White" PlaceholderColor="#2D2942"
-                               Placeholder="User Name"  FontSize="15" Opacity="0.5" TextColor="Gray" HorizontalOptions="FillAndExpand" Margin="0" >
-                                    </Entry>
+            <Entry 
+                IsPassword="{Binding HidePassword}"
+                Grid.Row="3" 
+                Grid.ColumnSpan="4" 
+                Text="{Binding Password}"
+                Style="{StaticResource Entry}"
+                Placeholder="Password"  
+                />
 
-                                </StackLayout>
+            <Image 
+                Grid.Row="3" 
+                Grid.Column="3" 
+                Source="{Binding EyeIcon}">
 
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowPasswordCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
 
+            <Button 
+                Text="LOG IN"
+                Grid.Row="4" Grid.ColumnSpan="4"
+                Command="{Binding LoginCommand}"
+                Style="{StaticResource ButtonRound}"
+            />
 
+            <Image 
+                Grid.Row="4" 
+                Grid.Column="1" 
+                Source="check" 
+            />
 
+     
 
-
-
-                            </Frame>
-                            <Frame BackgroundColor="White" BorderColor="DarkGray" Padding="0" Margin="0,20,0,0" CornerRadius="15" HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="AliceBlue" HeightRequest="35" WidthRequest="35" CornerRadius="15" HorizontalOptions="Start" Margin="7" Padding="0">
-                                        <Image Source="password.png" Aspect="AspectFill" Margin="0"></Image>
-                                    </Frame>
-                                    <Entry HeightRequest="30"  x:Name="password" BackgroundColor="White" PlaceholderColor="#2D2942"
-                               Placeholder="Password"  FontSize="15" Opacity="0.5" TextColor="Gray" HorizontalOptions="FillAndExpand" Margin="0" IsPassword="True" >
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <StackLayout>
-                                <Label  TextColor="Red" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
-                            </StackLayout>
-                            <Button x:Name="LoginButton" Text="SIGN IN" CornerRadius="20" BackgroundColor="Purple" TextColor="White" FontAttributes="Bold"  Command="{Binding LoginCommand}"></Button>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
+           
+         
         </Grid>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

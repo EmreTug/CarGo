@@ -4,12 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             x:Class="PratikKargo.MapPage">
+             x:Class="PratikKargo.MapPage"
+             >
     <Grid>
         <maps:Map   HasZoomEnabled="True" x:Name="map" MapType="Terrain"   />
         <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
             <Button Text="Rota Çiz" x:Name="TrackPath" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="TrackPath_Clicked" VerticalOptions="EndAndExpand"/>
-            <Button Text="Teslim Edildi" x:Name="PickupButton" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="TrackPath_Clicked" VerticalOptions="EndAndExpand" />
+            <Button Text="Başla" x:Name="PickupButton" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="Start" VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>
 </ContentPage>

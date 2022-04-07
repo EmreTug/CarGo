@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PratikKargo.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -8,56 +9,63 @@ using Xamarin.Forms;
 
 namespace PratikKargo.ViewModel
 {
-  
 
-        public class LoginViewModel : INotifyPropertyChanged
+
+    public class LoginViewModel : INotifyPropertyChanged
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public bool HidePassword { get; set; }
+        public string EyeIcon
         {
-
-            public event PropertyChangedEventHandler PropertyChanged;
-            void OnPropertyChanged([CallerMemberName] string PropertyName = null)
+            get
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+                return HidePassword ? "eye" : "eyeHidden";
+            }
+        }
+        public ICommand LoginCommand =>
+            new Command(Login);
+       
+        public ICommand ShowPasswordCommand =>
+            new Command(HidePasswordChange);
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public LoginViewModel()
+        {
+            HidePassword = true;
+        }
+
+        public async void Login()
+        {
+            string message = "";
+
+            if (string.IsNullOrEmpty(UserName))
+            {
+                message = "UserName or Email is required.";
             }
 
-
-
-            public string Username { get; set; }
-
-            public string Password { get; set; }
-            private string _note;
-            public string Note
+            if (string.IsNullOrEmpty(Password))
             {
-                get
-                {
-                    return _note;
-                }
-
-                set
-                {
-                    _note = value;
-
-                    OnPropertyChanged("Note");
-                }
+                message = $"{message} \nPassword is required.";
             }
 
-
-            public ICommand LoginCommand
+            if (!string.IsNullOrEmpty(message))
             {
-                get
-                {
-                    return new Command(async () =>
-                    {
-                      
-
-                                Application.Current.MainPage = new NavigationPage(new MainPage());
-
-                      
-
-                    });
-                }
+                await Application.Current.MainPage.DisplayAlert("Alert!", message, "Ok");
             }
+            else
+            {
+                Application.Current.MainPage = new BurgerMenu();
+            }
+        }
 
-          
+      
 
+        public void HidePasswordChange()
+        {
+            HidePassword = !HidePassword;
         }
     }
+}

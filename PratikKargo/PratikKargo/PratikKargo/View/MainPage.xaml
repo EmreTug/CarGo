@@ -2,27 +2,193 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:local="clr-namespace:PratikKargo.Model"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PratikKargo.MainPage">
-    <Grid>
-        <StackLayout>
-            <Label x:Name="lbl"></Label>
-            <Button BackgroundColor="AliceBlue" Clicked="Button_Clicked" HeightRequest="50" Margin="80,0,80,0" Text="Rota Hesapla" IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}"></Button>
-            <Button BackgroundColor="AliceBlue" Clicked="Button_Clicked_1" HeightRequest="50" Margin="80,0,80,0" Text="Yol Tarifi" IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}" ></Button>
-        </StackLayout>
-        <Grid VerticalOptions="Center" HorizontalOptions="Center"   >
+             x:Class="PratikKargo.MainPage"
+               xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             
+             xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+             xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
+             Visual="Material"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="{Binding Title}"
+             xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
+             >
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}"
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="{StaticResource BackgroundColor}"
+               FontFamily="AvenirNext-Bold"
+               FontSize="25"/>
+    </NavigationPage.TitleView>
+
+    <AbsoluteLayout>
+
+
+        <ScrollView x:Name="RootScrollView"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   
+                    >
             <AbsoluteLayout>
-                <ActivityIndicator x:Name="activity"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                      IsRunning="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy}" 
-                       IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy}" 
-                       IsVisible="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy}" 
-                       Color="Black"  
-                       Scale="2"
-                       BackgroundColor="Transparent"/>
+                <!-- Carousel -->
+                <cards:CarouselView
+                    ShouldShareViewAmongSameItems="True"
+                    IsViewReusingEnabled="False"
+                    OppositePanDirectionDisablingThreshold="1"
+                    BackgroundColor="{StaticResource BackgroundColor}"
+                    x:Name="InfoLayout"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    AbsoluteLayout.LayoutBounds="1,55,1,-1"
+                    SelectedItem="{Binding SelectedItem}"
+                    ItemsSource="{Binding Items}">
+                    <cards:CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Margin="10,10,10,0"
+                                Spacing="10"
+                                BindableLayout.ItemsSource="{Binding Repos}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid>
+                                            <StackLayout
+                                        
+                                                Padding="10,0,10,0">
+
+                                                <Frame
+                                                   CornerRadius="10"
+                                                   Padding="0">
+                                                    <StackLayout
+                                                        touch:TouchEff.Command="{Binding TapCommand}"
+                                                        touch:TouchEff.DisallowTouchThreshold="5"
+                                                        touch:TouchEff.NativeAnimation="True"
+                                                        Spacing="2"
+                                                    Padding="5,5,0,10"
+                                                       BackgroundColor="White"
+                                                        >
+                                                        <StackLayout.Effects>
+                                                            <touch:TouchEff />
+                                                        </StackLayout.Effects>
+
+                                                        <StackLayout
+                                                            Orientation="Horizontal"
+                                                        >
+
+                                                            <Label
+                                                            FontFamily="AvenirNext-Bold"
+                                                            TextColor="Green"
+                                                            FontSize="16"
+                                                            Text="{Binding number}" />
+                                                            <Label
+                                                            FontFamily="AvenirNext-Bold"
+                                                            TextColor="{StaticResource TextColor}"
+                                                            FontSize="16"
+                                                            Text="{Binding NameSurname}" />
+
+                                                        </StackLayout>
+                                                        <Label
+                                                            FontFamily="AvenirNext-Italic"
+                                                            FontAttributes="Italic"
+                                                            TextColor="{StaticResource TextColor}"
+                                                            FontSize="14"
+                                                            Text="{Binding phoneNumber}" />
+                                                        <Label Text="{Binding address}" FontFamily="AvenirNext-Regular" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColor}"/>
+                                                        <Label Text="{Binding distance}" Padding="0,0,10,10" FontFamily="AvenirNext-Regular" FontSize="16" HorizontalOptions="EndAndExpand" TextColor="{StaticResource DistanceColor}"/>
+
+
+
+                                                    </StackLayout>
+
+                                                </Frame>
+
+
+
+                                                <Image HeightRequest="35"
+                                                       Source ="Line 168.png" HorizontalOptions="Start" Margin="40,1,0,1"/>
+
+
+                                            </StackLayout>
+
+
+                                        </Grid>
+
+
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </cards:CarouselView.ItemTemplate>
+
+                </cards:CarouselView>
+
+
             </AbsoluteLayout>
-        </Grid>
-    </Grid>
+
+
+        </ScrollView>
+
+        <Frame
+            Padding="0"
+            CornerRadius="15"
+            HasShadow="False"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="320"
+            HeightRequest="60"
+            AbsoluteLayout.LayoutBounds="0.5, 0.97, Autosize, Autosize"
+            AbsoluteLayout.LayoutFlags="PositionProportional">
+
+            <Button Text="Start" FontAttributes="Bold" FontSize="Large" HeightRequest="50"  BackgroundColor="#2CD774" WidthRequest="70" />
+
+
+
+        </Frame>
+
+
+
+
+        <!-- Sticky Header-->
+        <Frame
+                    x:Name="TabsLayout"
+                    SizeChanged="OnTabsSizeChanged"
+                    Padding="0"
+                    CornerRadius="0"
+                    HasShadow="True"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    AbsoluteLayout.LayoutBounds="0,0,1,50">
+            <controls:TabsControl
+                        x:Name="Tabs"
+                        StripeHeight="3"
+                        StripePosition="Bottom"
+                        StripeColor="{StaticResource NavigationBarColor}"
+                        BackgroundColor="{StaticResource BackgroundColor}">
+
+                <controls:TabsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label
+                                    FontFamily="{Binding FontFamily}"
+                                    FontSize="16"
+                                    FontAttributes="{Binding FontAttributes}"
+                                    VerticalTextAlignment="Center"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="FillAndExpand"
+                                    TextColor="{StaticResource NavigationBarColor}"
+                                    Text="{Binding Title}" />
+                    </DataTemplate>
+                </controls:TabsControl.ItemTemplate>
+            </controls:TabsControl>
+        </Frame>
+
+
+
+
+
+    </AbsoluteLayout>
 
 
 </ContentPage>

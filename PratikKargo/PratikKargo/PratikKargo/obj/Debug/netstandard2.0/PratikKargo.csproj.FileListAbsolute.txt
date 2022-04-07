@@ -39,3 +39,5 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.pdb
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\PratikKargo.csproj.CopyComplete
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\refint\PratikKargo.dll
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\View\BurgerMenu.xaml.g.cs
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo\obj\Debug\netstandard2.0\View\Master.xaml.g.cs

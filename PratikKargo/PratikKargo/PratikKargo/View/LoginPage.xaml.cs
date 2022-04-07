@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PratikKargo.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace PratikKargo.View
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = new LoginViewModel();
+
         }
     }
 }

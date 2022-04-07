@@ -7,6 +7,9 @@ namespace PratikKargo
 {
     public partial class App : Application
     {
+        [Obsolete]
+        public static MasterDetailPage MasterDet { get; set; }
+
         public App()
         {
             InitializeComponent();

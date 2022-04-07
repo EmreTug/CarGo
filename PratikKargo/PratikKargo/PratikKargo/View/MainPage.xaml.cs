@@ -461,10 +461,10 @@ namespace PratikKargo
             {
                 best_tour_list = ant_list[save_index].tourList;
                 best_tour_length = best_local_tour;
-                lbl.Text = best_tour_length.ToString()+"    ";
+                //lbl.Text = best_tour_length.ToString()+"    ";
                 for (int i = 0; i < best_tour_list.Count; i++)
                 {
-                    lbl.Text += best_tour_list[i].ToString()+"-";
+                 //   lbl.Text += best_tour_list[i].ToString()+"-";
                 }
             }
         }
@@ -554,6 +554,11 @@ namespace PratikKargo
            
         }
 
+        private void OnTabsSizeChanged(object sender, EventArgs e)
+        {
+            TabsLayout.BindingContext = InfoLayout;
+            Tabs.GetType().GetMethod("UpdateStripePosition", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(Tabs, null);
+        }
     }
 
 

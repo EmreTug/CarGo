@@ -16,7 +16,7 @@ using System.Globalization;
 
 namespace PratikKargo
 {
-   
+
     [DesignTimeVisible(false)]
     public partial class MapPage : ContentPage
     {
@@ -28,7 +28,7 @@ namespace PratikKargo
             ApplyMapTheme();
         }
 
-        private  void ApplyMapTheme()
+        private void ApplyMapTheme()
         {
             var assembly = typeof(MapPage).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream($"PratikKargo.MapResources.MapTheme.json");
@@ -39,20 +39,23 @@ namespace PratikKargo
                 themeFile = reader.ReadToEnd();
                 map.MapStyle = MapStyle.FromJson(themeFile);
             }
-           
+
             //This is my actual location as of now we are taking it from google maps. But you have to use location plugin to generate latitude and longitude.
-            //var locator = CrossGeolocator.Current;
+            var locator = CrossGeolocator.Current;
             //locator.DesiredAccuracy = 50;
 
-            //var position = await locator.GetPositionAsync();
-            //Position position1 = new Position(position.Latitude, position.Longitude);
+
+            Position position1 = new Position(38.69301742336234, 35.549143170636405);
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(300)));
+
+
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(1500)));
-   //         await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
-   //new CameraPosition(
-   //    new Position(position1.Latitude, position1.Longitude), // center
-   //    17d, // zoom
-   //    45d, // bearing(rotation)
-   //    60d)));
+            //         await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
+            //new CameraPosition(
+            //    new Position(position1.Latitude, position1.Longitude), // center
+            //    17d, // zoom
+            //    45d, // bearing(rotation)
+            //    60d)));
 
 
 
@@ -65,19 +68,15 @@ namespace PratikKargo
 
 
 
-        double headernothvalue;
-        private void Compass_ReadingChanged(object sender, CompassChangedEventArgs e)
-        {
-            var data = e.Reading;
-            headernothvalue = data.HeadingMagneticNorth;
-        }
 
-  
 
- 
 
- 
+
+
+
+
         int nokta = 0;
+        public List<Position> pathcontent=null;
         async void TrackPath_Clicked(System.Object sender, System.EventArgs e)
         {
 
@@ -154,11 +153,11 @@ namespace PratikKargo
                 int finish = best_tour_list[nokta + 1];
                 var startLocation = city_list[start];
                 var finishLocation = city_list[finish];
-                
 
 
-                var pathcontent = await mapPageVModel.LoadRoute(startLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), startLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")));
 
+                pathcontent = await mapPageVModel.LoadRoute(startLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), startLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")));
+                System.Threading.Thread.Sleep(1000);
 
                 map.Polylines.Clear();
 
@@ -178,7 +177,7 @@ namespace PratikKargo
                 var pin = new Xamarin.Forms.GoogleMaps.Pin
                 {
                     Type = PinType.SearchResult,
-                    Position = new Xamarin.Forms.GoogleMaps.Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
+                    Position = new Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
                     Label = "Pin",
                     Address = "Pin",
                     Tag = "CirclePoint",
@@ -186,35 +185,14 @@ namespace PratikKargo
 
                 };
                 map.Pins.Add(pin);
-                var positions = new Xamarin.Forms.GoogleMaps.Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude);
-
-                CameraPosition cameraPosition = new CameraPosition(positions, 45, 0, 0);
-
-                CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
-
-                await map.MoveCamera(cameraUpdate);
-                var positionIndex = 1;
-
-                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
-                {
-                    if (pathcontent.Count > positionIndex)
-                    {
-                        UpdatePostions(pathcontent[positionIndex]);
-                        positionIndex++;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                });
+            
+            
             }
             nokta++;
 
-
         }
-
-        async void UpdatePostions(Xamarin.Forms.GoogleMaps.Position position)
+     
+         void UpdatePostions(Xamarin.Forms.GoogleMaps.Position position)
         {
             if (map.Pins.Count == 1 && map.Polylines != null && map.Polylines?.Count > 1)
                 return;
@@ -228,18 +206,18 @@ namespace PratikKargo
                 map.MoveToRegion(MapSpan.FromCenterAndRadius(cPin.Position, Distance.FromMeters(300)));
                 var previousPosition = map.Polylines?.FirstOrDefault()?.Positions?.FirstOrDefault();
                 map.Polylines?.FirstOrDefault()?.Positions?.Remove(previousPosition.Value);
-            
+
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
 
-    //            var positionn = await locator.GetPositionAsync();
-        
-    //            await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
-    //new CameraPosition(
-    //    new Position(position.Latitude, position.Longitude), // center
-    //    17d, // zoom
-    //    45d, // bearing(rotation)
-    //    30d)));
+                //            var positionn = await locator.GetPositionAsync();
+
+                //            await map.MoveCamera(CameraUpdateFactory.NewCameraPosition(
+                //new CameraPosition(
+                //    new Position(position.Latitude, position.Longitude), // center
+                //    17d, // zoom
+                //    45d, // bearing(rotation)
+                //    30d)));
             }
             else
             {
@@ -247,17 +225,31 @@ namespace PratikKargo
             }
         }
 
+      
 
+        private  void Start(object sender, EventArgs e)
+        {
+            var positionIndex = 1;
 
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+                if (pathcontent.Count > positionIndex)
+                {
+                    UpdatePostions(pathcontent[positionIndex]);
+                    positionIndex++;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
+            if (pathcontent.Count==positionIndex)
+            {
+                pathcontent = null;
+            }
 
-
-
-
-
-
-
-
-
+        }
     }
 }
 
