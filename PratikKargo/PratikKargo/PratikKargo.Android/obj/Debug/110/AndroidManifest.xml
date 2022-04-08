@@ -18,7 +18,7 @@
   <uses-feature android:name="android.hardware.location.network" android:required="false" />
   <application android:label="PratikKargo.Android" android:theme="@style/MainTheme" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true" android:extractNativeLibs="true">
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
-    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBte7LN_edqgl_jwBy09Jhn4rI7frDsQVY" />
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAAriP1Z3O9jQrsXAEaTby5e0XXEs2Sq8I" />
     <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:label="PratikKargo" android:theme="@style/MainTheme" android:name="crc64de5099aa1fa1de9a.MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

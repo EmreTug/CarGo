@@ -139,7 +139,10 @@ namespace PratikKargo
             ant_list = new List<Ant>();
             best_tour_list = new List<int>();
             initialize_AntColony();
-
+            //----------------------------------------------------------------start ant colony
+            initAnts();
+            Calculate();
+            // beecolony();
 
         }
 
@@ -148,14 +151,14 @@ namespace PratikKargo
 
             initAnts();
             Calculate();
-           // beecolony();
+            // beecolony();
 
         }
 
 
         private void ant_colony_s_path_Load(object sender, EventArgs e)
         {
-        
+
 
 
             num_cities = 5;
@@ -169,7 +172,7 @@ namespace PratikKargo
         /******************************************************************
          * Draw_button_Click: initiate ant colony method
          ******************************************************************/
-      
+
 
 
         /******************************************************************
@@ -191,7 +194,7 @@ namespace PratikKargo
         private void define_cities_Button_Click(object sender, EventArgs e)
         {
             num_cities = 5;
-          
+
         }
 
 
@@ -207,7 +210,7 @@ namespace PratikKargo
             num_ants = 30;
             distances = new double[num_cities, num_cities];
             pheromones = new double[num_cities, num_cities];
-           await initCities().ConfigureAwait(false);
+            await initCities().ConfigureAwait(false);
             initAnts();
             initPherom();
         }
@@ -241,19 +244,19 @@ namespace PratikKargo
 
             distances = new double[num_cities, num_cities];
             //initialize cities to random positions
-           
-                city_list = new List<City>();
+
+            city_list = new List<City>();
             Task<Location> location = getLocation();
-           // city_list.Add(new City(new Point(location.Result.Altitude.Value, location.Result.Longitude)));
-                  
-                     city_list.Add(new City(new Point(38.69301742336234, 35.549143170636405)));
-                     city_list.Add(new City(new Point(38.69490153218463, 35.5430599207414)));
-                     city_list.Add(new City(new Point(38.69591474353492, 35.539412116502035)));
-                     city_list.Add(new City(new Point(38.698024856628976, 35.53226671175525)));
-                     city_list.Add(new City(new Point(38.699088263038554, 35.52854380568901)));
-            
-                 
-              
+            // city_list.Add(new City(new Point(location.Result.Altitude.Value, location.Result.Longitude)));
+
+            city_list.Add(new City(new Point(38.69301742336234, 35.549143170636405)));
+            city_list.Add(new City(new Point(38.69490153218463, 35.5430599207414)));
+            city_list.Add(new City(new Point(38.69591474353492, 35.539412116502035)));
+            city_list.Add(new City(new Point(38.698024856628976, 35.53226671175525)));
+            city_list.Add(new City(new Point(38.699088263038554, 35.52854380568901)));
+
+
+
 
 
 
@@ -293,7 +296,7 @@ namespace PratikKargo
 
 
 
-    
+
 
         /***********************************************************************
          * backgroundWorker1_RunWorkerCompleted: draw solution based on ACO
@@ -307,9 +310,9 @@ namespace PratikKargo
          ***********************************************************************/
         private void Calculate()
         {
-            ALPHA =1;
-            BETA =1;
-            RHO =0.5;
+            ALPHA = 1;
+            BETA = 1;
+            RHO = 0.5;
             iterations = 100;
             for (int k = 0; k < iterations; k++)
             {
@@ -464,7 +467,7 @@ namespace PratikKargo
                 //lbl.Text = best_tour_length.ToString()+"    ";
                 for (int i = 0; i < best_tour_list.Count; i++)
                 {
-                 //   lbl.Text += best_tour_list[i].ToString()+"-";
+                    //   lbl.Text += best_tour_list[i].ToString()+"-";
                 }
             }
         }
@@ -532,26 +535,26 @@ namespace PratikKargo
 
             Hive beehive = new Hive(bees, 20,
                 150, 30,
-              (int)Math.Pow(city_list.Count, 2), maxNumVisits, c);
+              (int)Math.Pow(c.Count, 2), maxNumVisits, c);
 
 
-            for (int i = 0; i < (int)Math.Pow(city_list.Count, 2); i++)
-            {                
-               points= beehive.Solve();
-          
+            for (int i = 0; i < (int)Math.Pow(c.Count, 2); i++)
+            {
+                points = beehive.Solve();
+
             }
-            for (int i = 0; i <points.Length; i++)
+            for (int i = 0; i < points.Length; i++)
             {
                 for (int j = 0; j < c.Count; j++)
                 {
-                    if (c[j].getLocation()==points[i])
+                    if (c[j].getLocation() == points[i])
                     {
-                        siralama.Add(j+1);
+                        siralama.Add(j + 1);
                     }
                 }
             }
-            
-           
+
+
         }
 
         private void OnTabsSizeChanged(object sender, EventArgs e)

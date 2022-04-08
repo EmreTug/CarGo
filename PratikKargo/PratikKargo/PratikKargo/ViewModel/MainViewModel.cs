@@ -55,6 +55,30 @@ namespace PratikKargo.ViewModel
                       phoneNumber="03056465234",
                       address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
                       distance="800 m"
+                    },  new Repo
+                    {
+                                                 number=2,
+
+                      NameSurname= " isim Soyisim",
+                      phoneNumber="03056465234",
+                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
+                      distance="800 m"
+                    },  new Repo
+                    {
+                                                 number=2,
+
+                      NameSurname= " isim Soyisim",
+                      phoneNumber="03056465234",
+                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
+                      distance="800 m"
+                    },  new Repo
+                    {
+                                                 number=2,
+
+                      NameSurname= " isim Soyisim",
+                      phoneNumber="03056465234",
+                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
+                      distance="800 m"
                     },
                       new Repo
                     {

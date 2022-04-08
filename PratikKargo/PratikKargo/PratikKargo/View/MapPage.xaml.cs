@@ -46,7 +46,7 @@ namespace PratikKargo
 
 
             Position position1 = new Position(38.69301742336234, 35.549143170636405);
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(300)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(300)));
 
 
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(1500)));
@@ -76,7 +76,7 @@ namespace PratikKargo
 
 
         int nokta = 0;
-        public List<Position> pathcontent=null;
+        public List<Position> pathcontent = null;
         async void TrackPath_Clicked(System.Object sender, System.EventArgs e)
         {
 
@@ -141,13 +141,14 @@ namespace PratikKargo
             //    });
             //}
             //nokta++;
-            if ((nokta + 2) != 5)
+
+            if ((nokta + 2) != MainPage.best_tour_list.Count)
             {
 
                 //int start = MainPage.siralama[nokta];
-                //int finish = siralama[nokta+1];
-                //var startLocation = points[nokta];
-                //var finishLocation = points[nokta + 1];
+                //int finish = siralama[nokta + 1];
+                //var startLocation = points[start];
+                //var finishLocation = points[finish];
 
                 int start = MainPage.best_tour_list[nokta];
                 int finish = best_tour_list[nokta + 1];
@@ -157,7 +158,6 @@ namespace PratikKargo
 
 
                 pathcontent = await mapPageVModel.LoadRoute(startLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), startLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")));
-                System.Threading.Thread.Sleep(1000);
 
                 map.Polylines.Clear();
 
@@ -185,14 +185,16 @@ namespace PratikKargo
 
                 };
                 map.Pins.Add(pin);
-            
-            
+
+                nokta++;
+
             }
-            nokta++;
+
+
 
         }
-     
-         void UpdatePostions(Xamarin.Forms.GoogleMaps.Position position)
+
+        void UpdatePostions(Xamarin.Forms.GoogleMaps.Position position)
         {
             if (map.Pins.Count == 1 && map.Polylines != null && map.Polylines?.Count > 1)
                 return;
@@ -225,9 +227,9 @@ namespace PratikKargo
             }
         }
 
-      
 
-        private  void Start(object sender, EventArgs e)
+
+        private void Start(object sender, EventArgs e)
         {
             var positionIndex = 1;
 
@@ -244,7 +246,7 @@ namespace PratikKargo
                     return false;
                 }
             });
-            if (pathcontent.Count==positionIndex)
+            if (pathcontent.Count == positionIndex)
             {
                 pathcontent = null;
             }

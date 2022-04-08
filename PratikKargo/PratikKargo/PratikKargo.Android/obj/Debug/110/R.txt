@@ -1471,10 +1471,11 @@ int drawable notification_template_icon_low_bg 0x7f0700a0
 int drawable notification_tile_bg 0x7f0700a1
 int drawable notify_panel_notification_icon_bg 0x7f0700a2
 int drawable password 0x7f0700a3
-int drawable test_custom_background 0x7f0700a4
-int drawable tooltip_frame_dark 0x7f0700a5
-int drawable tooltip_frame_light 0x7f0700a6
-int drawable user 0x7f0700a7
+int drawable profilfoto 0x7f0700a4
+int drawable test_custom_background 0x7f0700a5
+int drawable tooltip_frame_dark 0x7f0700a6
+int drawable tooltip_frame_light 0x7f0700a7
+int drawable user 0x7f0700a8
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002

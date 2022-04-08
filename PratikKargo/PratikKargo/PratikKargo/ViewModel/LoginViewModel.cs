@@ -44,11 +44,15 @@ namespace PratikKargo.ViewModel
             if (string.IsNullOrEmpty(UserName))
             {
                 message = "UserName or Email is required.";
+                Application.Current.MainPage = new BurgerMenu();
+
             }
 
             if (string.IsNullOrEmpty(Password))
             {
                 message = $"{message} \nPassword is required.";
+                Application.Current.MainPage = new BurgerMenu();
+
             }
 
             if (!string.IsNullOrEmpty(message))

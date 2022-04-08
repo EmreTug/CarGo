@@ -1338,5 +1338,6 @@ C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\Pra
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\98\jl\files.cache
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\assets\TouchEffect.dll
 C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\android\assets\TouchEffect.Droid.dll
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\jl\47ee2367-f535-42a0-b3a9-7ec18d274de7.jar
-C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\proguard\1b036ab7-72da-4349-9496-937670e39734.cfg
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\jl\64d25e7c-6519-4be8-aecd-248fcccf7787.jar
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\androidx\proguard\1d562ea9-69ff-4ed4-8f60-8fa3150ee210.cfg
+C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\res\drawable\profilfoto.jpeg

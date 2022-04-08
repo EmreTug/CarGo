@@ -6,6 +6,6 @@ namespace PratikKargo.Constants
 {
     public class AppConstants
     {
-        public const string GoogleMapsApiKey = "AIzaSyBte7LN_edqgl_jwBy09Jhn4rI7frDsQVY";
+        public const string GoogleMapsApiKey = "AIzaSyAAriP1Z3O9jQrsXAEaTby5e0XXEs2Sq8I";
     }
 }

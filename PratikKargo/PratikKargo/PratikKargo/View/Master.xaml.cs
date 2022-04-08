@@ -20,13 +20,14 @@ namespace PratikKargo.View
         private async void btnProfile_Clicked(object sender, EventArgs e)
         {
             App.MasterDet.IsPresented = false;
-            await App.MasterDet.Detail.Navigation.PushAsync(new MapPage());
+            await App.MasterDet.Detail.Navigation.PushAsync(new Profile());
         }
 
         private async void btnLogOut_Clicked(object sender, EventArgs e)
         {
             App.MasterDet.IsPresented = false;
-            await App.MasterDet.Detail.Navigation.PushAsync(new MapPage());
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
+
         }
     }
 }

@@ -21,6 +21,8 @@ com.google.android.material.bottomnavigation.BottomNavigationView;C:\Users\Msi\D
 com.google.android.material.tabs.TabLayout;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\layout\fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\layout\tabbar.xml
+crc643f46942d9dd1fff9.ShellFlyoutLayout;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\layout\flyoutcontent.xml
+crc64720bb2db43a66fe9.FormsViewPager;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\layout\rootlayout.xml
 declare-styleable;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\52\jl\res\values\attrs.xml
 external-cache-path;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Msi\Documents\GitHub\Kargo-Da--t-m-Problemi\PratikKargo\PratikKargo\PratikKargo.Android\obj\Debug\110\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml

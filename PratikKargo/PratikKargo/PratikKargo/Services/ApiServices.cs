@@ -59,7 +59,7 @@ namespace PratikKargo.Services
             string d2 = destinationLongitude.Replace(",", ".");
             DistanceResponseModel distance = new DistanceResponseModel();
 
-            using (var response = await client.GetAsync($"https://maps.googleapis.com/maps/api/distancematrix/json?destinations={d1},{d2}&origins={o1},{o2}&key=AIzaSyBte7LN_edqgl_jwBy09Jhn4rI7frDsQVY").ConfigureAwait(false))
+            using (var response = await client.GetAsync($"https://maps.googleapis.com/maps/api/distancematrix/json?destinations={d1},{d2}&origins={o1},{o2}&key=AIzaSyAAriP1Z3O9jQrsXAEaTby5e0XXEs2Sq8I").ConfigureAwait(false))
             {
                 if (response.IsSuccessStatusCode)
                 {
