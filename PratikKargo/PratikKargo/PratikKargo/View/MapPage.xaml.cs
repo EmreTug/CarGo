@@ -4,12 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using PratikKargo.ViewModels;
-using Newtonsoft.Json;
 using Plugin.Geolocator;
 using static PratikKargo.MainPage;
 using System.Globalization;
@@ -250,6 +247,8 @@ namespace PratikKargo
             {
                 pathcontent = null;
             }
+
+
 
         }
     }

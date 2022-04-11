@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PratikKargo.Android", "Prat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PratikKargo.iOS", "PratikKargo\PratikKargo.iOS\PratikKargo.iOS.csproj", "{2285F894-736A-4BCD-BCC4-B39E479E9ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PratikKargo", "PratikKargo\PratikKargo\PratikKargo.csproj", "{F2FFAEF0-6A90-4296-960C-88C02851934D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PratikKargo", "PratikKargo\PratikKargo\PratikKargo.csproj", "{F2FFAEF0-6A90-4296-960C-88C02851934D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3519B2C2-CE7F-4E7C-BE27-1F51E6B67400}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

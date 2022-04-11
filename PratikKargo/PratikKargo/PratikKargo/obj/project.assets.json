@@ -11,6 +11,19 @@
           "lib/netstandard2.0/PanCardView.dll": {}
         }
       },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.7": {
         "type": "package",
         "dependencies": {
@@ -252,18 +265,6 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/TouchEffect.dll": {}
-        }
-      },
       "Xam.Plugin.Geolocator/4.5.0.6": {
         "type": "package",
         "compile": {
@@ -273,7 +274,42 @@
           "lib/netstandard2.0/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/netstandard2.0/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/2.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Plugin.Settings.Abstractions.dll": {},
+          "lib/net45/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Plugin.Settings.Abstractions.dll": {},
+          "lib/net45/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -341,6 +377,18 @@
         "lib/uap/PanCardView.dll",
         "lib/win81/PanCardView.dll",
         "lib/wpa81/PanCardView.dll"
+      ]
+    },
+    "FirebaseAuthentication.net/3.7.2": {
+      "sha512": "d0Zc0tiE7NutI/jMX/T81LU/rX3HVBH8vtvKTbIeN6BCIQ+wipstz7tm5MnIgAeh4ehqCHTiVuMOHztqfCVCBQ==",
+      "type": "package",
+      "path": "firebaseauthentication.net/3.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebaseauthentication.net.3.7.2.nupkg.sha512",
+        "firebaseauthentication.net.nuspec",
+        "lib/netstandard1.1/Firebase.Auth.dll"
       ]
     },
     "FirebaseDatabase.net/4.0.7": {
@@ -1304,27 +1352,6 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "TouchView/4.1.30": {
-      "sha512": "I7BS8m1rzJs5ZNy/4rXTu/xy2MdnIDRwXB78LrtIIoHkrBi/Hf0phAheiReVrIfaS+6i1M73jEz7u/m+6hdSwQ==",
-      "type": "package",
-      "path": "touchview/4.1.30",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/TouchEffect.Droid.dll",
-        "lib/MonoAndroid10/TouchEffect.dll",
-        "lib/Xamarin.Mac20/TouchEffect.Mac.dll",
-        "lib/Xamarin.Mac20/TouchEffect.dll",
-        "lib/Xamarin.iOS10/TouchEffect.dll",
-        "lib/Xamarin.iOS10/TouchEffect.iOS.dll",
-        "lib/netstandard2.0/TouchEffect.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/TouchEffect.dll",
-        "lib/uap/TouchEffect.UWP.dll",
-        "lib/uap/TouchEffect.dll",
-        "touchview.4.1.30.nupkg.sha512",
-        "touchview.nuspec"
-      ]
-    },
     "Xam.Plugin.Geolocator/4.5.0.6": {
       "sha512": "Ro7peBDxsDXPc7J7yLx0ekAcXIfVTAXj/rXiBKiTgZ4Lm7KZJIU8PXOCcI4JztzT3MQrL8Rmka48il/ix0pwoA==",
       "type": "package",
@@ -1352,10 +1379,114 @@
         "xam.plugin.geolocator.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.6.1": {
-      "sha512": "gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
+    "Xam.Plugin.Iconize/3.5.0.129": {
+      "sha512": "XLWwU+ZRRs1tM8quKDD3ZgdYgAftxyk9LhEQ8vdji8C9HsqVF+1El9Fdw9WbU/VBxGVoM5GWQ0tDb2uuT1QU7w==",
       "type": "package",
-      "path": "xamarin.essentials/1.6.1",
+      "path": "xam.plugin.iconize/3.5.0.129",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid90/Plugin.Iconize.dll",
+        "lib/monoandroid90/Plugin.Iconize.pdb",
+        "lib/monoandroid90/Plugin.Iconize.xml",
+        "lib/net472/Plugin.Iconize.dll",
+        "lib/net472/Plugin.Iconize.pdb",
+        "lib/net472/Plugin.Iconize.xml",
+        "lib/netstandard1.3/Plugin.Iconize.dll",
+        "lib/netstandard1.3/Plugin.Iconize.pdb",
+        "lib/netstandard1.3/Plugin.Iconize.xml",
+        "lib/netstandard2.0/Plugin.Iconize.dll",
+        "lib/netstandard2.0/Plugin.Iconize.pdb",
+        "lib/netstandard2.0/Plugin.Iconize.xml",
+        "lib/uap10.0.16299/Plugin.Iconize.dll",
+        "lib/uap10.0.16299/Plugin.Iconize.pdb",
+        "lib/uap10.0.16299/Plugin.Iconize.pri",
+        "lib/uap10.0.16299/Plugin.Iconize.xml",
+        "lib/xamarinios10/Plugin.Iconize.dll",
+        "lib/xamarinios10/Plugin.Iconize.pdb",
+        "lib/xamarinios10/Plugin.Iconize.xml",
+        "xam.plugin.iconize.3.5.0.129.nupkg.sha512",
+        "xam.plugin.iconize.nuspec"
+      ]
+    },
+    "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+      "sha512": "59HyuAaUzuloQmu/PVCDCJQMRuuhqmIpCQ+d5hH5Qp8AZsa/vDi5ulrXDKRMZSZt/xbXsyZV+aZ/W/SZaYt2Mg==",
+      "type": "package",
+      "path": "xam.plugins.forms.imagecircle/3.0.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/ImageCircle.Forms.Plugin.dll",
+        "lib/monoandroid71/ImageCircle.Forms.Plugin.xml",
+        "lib/netstandard1.0/ImageCircle.Forms.Plugin.dll",
+        "lib/netstandard1.0/ImageCircle.Forms.Plugin.xml",
+        "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll",
+        "lib/netstandard2.0/ImageCircle.Forms.Plugin.xml",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.pri",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.xml",
+        "lib/xamarinios10/ImageCircle.Forms.Plugin.dll",
+        "lib/xamarinios10/ImageCircle.Forms.Plugin.xml",
+        "xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+        "xam.plugins.forms.imagecircle.nuspec"
+      ]
+    },
+    "Xam.Plugins.Settings/2.5.1": {
+      "sha512": "74FJFEiDiItFm73B+k5bBGXu7ZJF1J8u+GNjS/xYgtgSqty+5Nc8ZWwxx0BqzlrDmGnKPSnNcTf2vm5Sw46bIw==",
+      "type": "package",
+      "path": "xam.plugins.settings/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/MonoAndroid10/Helpers/Settings.cs.pp",
+        "content/UAP10/Helpers/Settings.cs.pp",
+        "content/Xamarin.iOS10/Helpers/Settings.cs.pp",
+        "content/net45/Helpers/Settings.cs.pp",
+        "content/portable-net45+wp80+win8+wpa81/Helpers/Settings.cs.pp",
+        "content/win8/Helpers/Settings.cs.pp",
+        "content/wp8/Helpers/Settings.cs.pp",
+        "content/wpa81/Helpers/Settings.cs.pp",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Settings.dll",
+        "lib/MonoAndroid10/Plugin.Settings.xml",
+        "lib/UAP10/Plugin.Settings.Abstractions.dll",
+        "lib/UAP10/Plugin.Settings.Abstractions.xml",
+        "lib/UAP10/Plugin.Settings.dll",
+        "lib/UAP10/Plugin.Settings.xml",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Settings.dll",
+        "lib/Xamarin.iOS10/Plugin.Settings.xml",
+        "lib/net45/Plugin.Settings.Abstractions.dll",
+        "lib/net45/Plugin.Settings.Abstractions.xml",
+        "lib/net45/Plugin.Settings.dll",
+        "lib/net45/Plugin.Settings.xml",
+        "lib/portable-net45+wp80+win8+wpa81/Plugin.Settings.Abstractions.dll",
+        "lib/portable-net45+wp80+win8+wpa81/Plugin.Settings.Abstractions.xml",
+        "lib/portable-net45+wp80+win8+wpa81/Plugin.Settings.dll",
+        "lib/portable-net45+wp80+win8+wpa81/Plugin.Settings.xml",
+        "lib/win8/Plugin.Settings.Abstractions.dll",
+        "lib/win8/Plugin.Settings.Abstractions.xml",
+        "lib/win8/Plugin.Settings.dll",
+        "lib/win8/Plugin.Settings.xml",
+        "lib/wp8/Plugin.Settings.Abstractions.dll",
+        "lib/wp8/Plugin.Settings.Abstractions.xml",
+        "lib/wp8/Plugin.Settings.dll",
+        "lib/wp8/Plugin.Settings.xml",
+        "lib/wpa81/Plugin.Settings.Abstractions.dll",
+        "lib/wpa81/Plugin.Settings.Abstractions.xml",
+        "lib/wpa81/Plugin.Settings.dll",
+        "lib/wpa81/Plugin.Settings.xml",
+        "readme.txt",
+        "xam.plugins.settings.2.5.1.nupkg.sha512",
+        "xam.plugins.settings.nuspec"
+      ]
+    },
+    "Xamarin.Essentials/1.7.2": {
+      "sha512": "3r2QA/54YZGw6o+cBmIQdvs9nkT1SNHHvFGl1jg2bJ/INmsPdSU4ddrwhIw6zSWSIMRbemKvXEVov1KwjRk6PQ==",
+      "type": "package",
+      "path": "xamarin.essentials/1.7.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1364,15 +1495,6 @@
         "lib/monoandroid10.0/Xamarin.Essentials.dll",
         "lib/monoandroid10.0/Xamarin.Essentials.pdb",
         "lib/monoandroid10.0/Xamarin.Essentials.xml",
-        "lib/monoandroid80/Xamarin.Essentials.dll",
-        "lib/monoandroid80/Xamarin.Essentials.pdb",
-        "lib/monoandroid80/Xamarin.Essentials.xml",
-        "lib/monoandroid81/Xamarin.Essentials.dll",
-        "lib/monoandroid81/Xamarin.Essentials.pdb",
-        "lib/monoandroid81/Xamarin.Essentials.xml",
-        "lib/monoandroid90/Xamarin.Essentials.dll",
-        "lib/monoandroid90/Xamarin.Essentials.pdb",
-        "lib/monoandroid90/Xamarin.Essentials.xml",
         "lib/netstandard1.0/Xamarin.Essentials.dll",
         "lib/netstandard1.0/Xamarin.Essentials.pdb",
         "lib/netstandard1.0/Xamarin.Essentials.xml",
@@ -1399,7 +1521,7 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.6.1.nupkg.sha512",
+        "xamarin.essentials.1.7.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
@@ -1643,13 +1765,16 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "CardsView >= 2.4.9",
+      "FirebaseAuthentication.net >= 3.7.2",
       "FirebaseDatabase.net >= 4.0.7",
       "Google.Api.CommonProtos >= 2.5.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 13.0.1",
-      "TouchView >= 4.1.30",
       "Xam.Plugin.Geolocator >= 4.5.0.6",
-      "Xamarin.Essentials >= 1.6.1",
+      "Xam.Plugin.Iconize >= 3.5.0.129",
+      "Xam.Plugins.Forms.ImageCircle >= 3.0.0.5",
+      "Xam.Plugins.Settings >= 2.5.1",
+      "Xamarin.Essentials >= 1.7.2",
       "Xamarin.Forms >= 5.0.0.2401",
       "Xamarin.Forms.GoogleMaps >= 3.3.0"
     ]
@@ -1705,6 +1830,10 @@
             "target": "Package",
             "version": "[2.4.9, )"
           },
+          "FirebaseAuthentication.net": {
+            "target": "Package",
+            "version": "[3.7.2, )"
+          },
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.0.7, )"
@@ -1723,17 +1852,25 @@
             "target": "Package",
             "version": "[13.0.1, )"
           },
-          "TouchView": {
-            "target": "Package",
-            "version": "[4.1.30, )"
-          },
           "Xam.Plugin.Geolocator": {
             "target": "Package",
             "version": "[4.5.0.6, )"
           },
+          "Xam.Plugin.Iconize": {
+            "target": "Package",
+            "version": "[3.5.0.129, )"
+          },
+          "Xam.Plugins.Forms.ImageCircle": {
+            "target": "Package",
+            "version": "[3.0.0.5, )"
+          },
+          "Xam.Plugins.Settings": {
+            "target": "Package",
+            "version": "[2.5.1, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.6.1, )"
+            "version": "[1.7.2, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
@@ -1757,5 +1894,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Xam.Plugins.Settings 2.5.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Xam.Plugins.Settings",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -6,7 +6,6 @@
                xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
              
              xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
-             xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
              Visual="Material"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{Binding Title}"
@@ -17,8 +16,9 @@
     </ContentPage.BindingContext>
 
     <NavigationPage.TitleView>
-        <Label Text="{Binding Title}"
-               VerticalOptions="Center"
+        <Label Text="{Binding Title}" 
+               Padding="0,0,60,0"
+               VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand"
                TextColor="{StaticResource BackgroundColor}"
                FontFamily="AvenirNext-Bold"
@@ -137,7 +137,7 @@
             AbsoluteLayout.LayoutBounds="0.5, 0.97, Autosize, Autosize"
             AbsoluteLayout.LayoutFlags="PositionProportional">
 
-                <Button Text="Start" FontAttributes="Bold" Clicked="Button_Clicked_1" IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}" FontSize="Large" HeightRequest="50"  BackgroundColor="#2CD774" WidthRequest="70" />
+                <Button Text="Start" x:Name="lbl" FontAttributes="Bold" Clicked="Button_Clicked_1" IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}" FontSize="Large" HeightRequest="50"  BackgroundColor="#2CD774" WidthRequest="70" />
 
 
 

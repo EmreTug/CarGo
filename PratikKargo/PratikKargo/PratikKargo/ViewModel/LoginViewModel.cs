@@ -11,65 +11,40 @@ namespace PratikKargo.ViewModel
 {
 
 
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel
     {
-        public string UserName { get; set; }
+
+
+
+        public string Username { get; set; }
+
         public string Password { get; set; }
-        public bool HidePassword { get; set; }
-        public string EyeIcon
+
+
+
+        public ICommand LoginCommand
         {
+
             get
             {
-                return HidePassword ? "eye" : "eyeHidden";
+
+                
+                return new Command(async () =>
+                {
+                    PratikKargo.Helpers.Settings.Username = Username;
+                    PratikKargo.Helpers.Settings.Password = Password;
+
+                });
             }
+
+
         }
-        public ICommand LoginCommand =>
-            new Command(Login);
-       
-        public ICommand ShowPasswordCommand =>
-            new Command(HidePasswordChange);
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public LoginViewModel()
         {
-            HidePassword = true;
+            Username = PratikKargo.Helpers.Settings.Username;
+            Password = PratikKargo.Helpers.Settings.Password;
         }
 
-        public async void Login()
-        {
-            string message = "";
-
-            if (string.IsNullOrEmpty(UserName))
-            {
-                message = "UserName or Email is required.";
-                Application.Current.MainPage = new BurgerMenu();
-
-            }
-
-            if (string.IsNullOrEmpty(Password))
-            {
-                message = $"{message} \nPassword is required.";
-                Application.Current.MainPage = new BurgerMenu();
-
-            }
-
-            if (!string.IsNullOrEmpty(message))
-            {
-                await Application.Current.MainPage.DisplayAlert("Alert!", message, "Ok");
-            }
-            else
-            {
-                Application.Current.MainPage = new BurgerMenu();
-            }
-        }
-
-      
-
-        public void HidePasswordChange()
-        {
-            HidePassword = !HidePassword;
-        }
     }
 }

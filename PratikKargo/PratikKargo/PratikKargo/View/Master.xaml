@@ -2,12 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PratikKargo.View.Master"
+            xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="Master"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="profil" x:Name="btnProfile" TextColor="Black" BackgroundColor="White" Clicked="btnProfile_Clicked"></Button>
-            <Button Text="oturumu kapat" x:Name="btnLogOut" TextColor="Black" BackgroundColor="White" Clicked="btnLogOut_Clicked"></Button>
-        </StackLayout>
+        <Grid BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Image Source="bg.png" Aspect="AspectFill" />
+                <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <controls:CircleImage BorderColor="White" BorderThickness="2" Source="profilfoto.png" Aspect="AspectFill" WidthRequest="85" HeightRequest="85" />
+                    <Label Text="Muhammed Parlak" TextColor="White" FontSize="Large" />
+                </StackLayout>
+            </Grid>
+            <StackLayout Margin="20,20,20,0" Grid.Row="1" Spacing="15">
+                <Frame Opacity="0.5" BackgroundColor="Transparent">
+                    <Grid >
+                        <Image   Source="profil" HeightRequest="30"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <Label Margin="20,0,0,0" Padding="0" FontSize="15"   VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black">Profile</Label>
+
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnProfile_Clicked">
+                            
+                        </TapGestureRecognizer></Frame.GestureRecognizers>
+                </Frame>
+                <ContentView HeightRequest="1" BackgroundColor="Gray" />
+                <Frame Opacity="0.5" BackgroundColor="Transparent">
+                    <Grid >
+                        <Image   Source="logout" HeightRequest="30" Margin="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <Label Margin="20,0,0,0" Padding="0"   FontSize="15"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black">Logout</Label>
+
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnLogOut_Clicked">
+
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -3,7 +3,12 @@
              xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PratikKargo.View.LoginPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             
+             >
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel />
+    </ContentPage.BindingContext>
     <ScrollView>
         <Grid Padding="30">
             <Grid.RowDefinitions>
@@ -40,15 +45,18 @@
             />
 
             <Entry 
+                x:Name="email"
                 Grid.Row="2" 
                 Grid.ColumnSpan="4"
                 Placeholder="Username or email address" 
-                Text="{Binding UserName}"
+                Text="{Binding Username}"
                 Style="{StaticResource Entry}"
             />
 
             <Entry 
-                IsPassword="{Binding HidePassword}"
+                x:Name="password"
+                
+                IsPassword="True"
                 Grid.Row="3" 
                 Grid.ColumnSpan="4" 
                 Text="{Binding Password}"
@@ -56,19 +64,12 @@
                 Placeholder="Password"  
                 />
 
-            <Image 
-                Grid.Row="3" 
-                Grid.Column="3" 
-                Source="{Binding EyeIcon}">
-
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ShowPasswordCommand}" />
-                </Image.GestureRecognizers>
-            </Image>
+           
 
             <Button 
                 Text="LOG IN"
                 Grid.Row="4" Grid.ColumnSpan="4"
+               Clicked="loginbutton_Clicked"
                 Command="{Binding LoginCommand}"
                 Style="{StaticResource ButtonRound}"
             />

@@ -140,8 +140,7 @@ namespace PratikKargo
             best_tour_list = new List<int>();
             initialize_AntColony();
             //----------------------------------------------------------------start ant colony
-            initAnts();
-            Calculate();
+       
             // beecolony();
 
         }
@@ -211,13 +210,15 @@ namespace PratikKargo
             distances = new double[num_cities, num_cities];
             pheromones = new double[num_cities, num_cities];
             await initCities().ConfigureAwait(false);
-            initAnts();
-            initPherom();
+           await initAnts().ConfigureAwait(false);
+            await initPherom().ConfigureAwait(false);
+            await initAnts().ConfigureAwait(false);
+            await Calculate().ConfigureAwait(false);
         }
         /********************************************************************
          * initAnts: add ants to random starting position
          ********************************************************************/
-        private void initAnts()
+        private async Task initAnts()
         {
             int rand_city = 0;
             ant_list.Clear();
@@ -282,7 +283,7 @@ namespace PratikKargo
         /**************************************************************************
          * initPherom: initialize pheromone levels btwn cities to  a small constant
          ***************************************************************************/
-        private void initPherom()
+        private async Task initPherom()
         {
             for (int from = 0; from < num_cities; from++)
             {
@@ -308,7 +309,7 @@ namespace PratikKargo
          * Calculate: main function that calculates ant movement, 
          *          evaporation and increment of pheromones
          ***********************************************************************/
-        private void Calculate()
+        private async Task Calculate()
         {
             ALPHA = 1;
             BETA = 1;

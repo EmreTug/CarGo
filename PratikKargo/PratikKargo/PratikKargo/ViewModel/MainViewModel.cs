@@ -9,9 +9,6 @@ namespace PratikKargo.ViewModel
     public sealed class MainViewModel
     {
         public string Title => "CarGo";
-        public string Name => "Andrei Misiukevich";
-        public string Role => "Software Engineer at ISsoft";
-        public string Picture => "https://sun9-28.userapi.com/c834301/v834301470/87cfc/iwaiivS6ek0.jpg";
 
 
         private Item _selectedItem;

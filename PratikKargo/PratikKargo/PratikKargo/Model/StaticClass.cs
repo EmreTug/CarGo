@@ -45,6 +45,22 @@ namespace PratikKargo.Model
             }
         }
 
+        private bool _isBusy2;
+
+        public bool IsBusy2
+        {
+            get
+            {
+                return _isBusy2;
+            }
+
+            set
+            {
+                _isBusy2 = value;
+                OnPropertyChanged("IsBusy2");
+
+            }
+        }
 
 
 

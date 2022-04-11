@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ARwXF4AzvTEGLMEfG10JcSnmvA2kJwhNKP/TuVxCH8JW/SaT4bFidkrQmpCUP7+eBpYldjSJ0u2LwtrtMEdgpg==",
+  "dgSpecHash": "vG1iybCaF1mDJ2YmJoHl1dajLqCXmYV0MjF38JIf6ZNaxtFQEFvvrTkQ4mCe+Iq9yDgd6iuwurasoqKQDZwpYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.UWP\\PratikKargo.UWP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Msi\\.nuget\\packages\\cardsview\\2.4.9\\cardsview.2.4.9.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\firebasedatabase.net\\4.0.7\\firebasedatabase.net.4.0.7.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\google.api.commonprotos\\2.5.0\\google.api.commonprotos.2.5.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\google.protobuf\\3.18.0\\google.protobuf.3.18.0.nupkg.sha512",
@@ -57,6 +58,7 @@
     "C:\\Users\\Msi\\.nuget\\packages\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\\2.2.12\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk.2.2.12.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\\6.2.12\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform.6.2.12.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\runtime.win7.system.private.uri\\4.3.0\\runtime.win7.system.private.uri.4.3.0.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\skiasharp\\1.68.0\\skiasharp.1.68.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.diagnostics.contracts\\4.3.0\\system.diagnostics.contracts.4.3.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
@@ -77,30 +79,14 @@
     "C:\\Users\\Msi\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\Msi\\.nuget\\packages\\touchview\\4.1.30\\touchview.4.1.30.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\win2d.uwp\\1.20.0\\win2d.uwp.1.20.0.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xam.plugin.geolocator\\4.5.0.6\\xam.plugin.geolocator.4.5.0.6.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xam.plugin.iconize\\3.5.0.129\\xam.plugin.iconize.3.5.0.129.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.0.0.5\\xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xam.plugins.settings\\3.1.1\\xam.plugins.settings.3.1.1.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xamarin.essentials\\1.7.2\\xamarin.essentials.1.7.2.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms.googlemaps\\3.3.0\\xamarin.forms.googlemaps.3.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n PratikKargo.UWP -> PratikKargo -> Xamarin.Forms (>= 5.0.0.2401) \r\n PratikKargo.UWP -> Xamarin.Forms (>= 5.0.0.2012)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "UAP,Version=v10.0.16299",
-        "UAP,Version=v10.0.16299/win10-arm",
-        "UAP,Version=v10.0.16299/win10-arm-aot",
-        "UAP,Version=v10.0.16299/win10-arm64-aot",
-        "UAP,Version=v10.0.16299/win10-x64",
-        "UAP,Version=v10.0.16299/win10-x64-aot",
-        "UAP,Version=v10.0.16299/win10-x86",
-        "UAP,Version=v10.0.16299/win10-x86-aot"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:PratikKargo.Model"
+             
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="PratikKargo.MapPage"
              >
     <Grid>
         <maps:Map   HasZoomEnabled="True" x:Name="map" MapType="Terrain"   />
         <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
-            <Button Text="Rota Çiz" x:Name="TrackPath" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="TrackPath_Clicked" VerticalOptions="EndAndExpand"/>
-            <Button Text="Başla" x:Name="PickupButton" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="Start" VerticalOptions="EndAndExpand" />
+            <Button Text="Rota Çiz" x:Name="TrackPath" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="TrackPath_Clicked" VerticalOptions="EndAndExpand" IsVisible="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy2}"/>
+            <Button Text="Başla" x:Name="PickupButton" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="Start" VerticalOptions="EndAndExpand" IsVisible="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy2}"/>
         </StackLayout>
     </Grid>
 </ContentPage>

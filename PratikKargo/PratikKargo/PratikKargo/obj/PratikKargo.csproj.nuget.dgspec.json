@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.4.9, )"
             },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[3.7.2, )"
+            },
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.0.7, )"
@@ -68,17 +72,25 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "TouchView": {
-              "target": "Package",
-              "version": "[4.1.30, )"
-            },
             "Xam.Plugin.Geolocator": {
               "target": "Package",
               "version": "[4.5.0.6, )"
             },
+            "Xam.Plugin.Iconize": {
+              "target": "Package",
+              "version": "[3.5.0.129, )"
+            },
+            "Xam.Plugins.Forms.ImageCircle": {
+              "target": "Package",
+              "version": "[3.0.0.5, )"
+            },
+            "Xam.Plugins.Settings": {
+              "target": "Package",
+              "version": "[2.5.1, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.6.1, )"
+              "version": "[1.7.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",

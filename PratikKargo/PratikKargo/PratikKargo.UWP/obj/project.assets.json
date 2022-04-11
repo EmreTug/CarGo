@@ -11,6 +11,19 @@
           "lib/uap/PanCardView.dll": {}
         }
       },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        }
+      },
       "FirebaseDatabase.net/4.0.7": {
         "type": "package",
         "dependencies": {
@@ -398,6 +411,73 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/tizen-armel/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "tizen-armel"
+          },
+          "runtimes/tizen-x86/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "tizen-x86"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          },
+          "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          },
+          "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -649,20 +729,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -698,7 +764,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -707,7 +810,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -749,12 +852,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -774,6 +880,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -1459,6 +1578,20 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1720,20 +1853,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -1758,7 +1877,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -1767,7 +1923,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -1809,12 +1965,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -1834,6 +1993,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -2550,6 +2722,20 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2840,20 +3026,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -2878,7 +3050,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -2887,7 +3096,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -2929,12 +3138,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -2954,6 +3166,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -3670,6 +3895,15 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3960,20 +4194,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -3995,7 +4215,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -4004,7 +4261,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -4046,12 +4303,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -4071,6 +4331,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -4756,6 +5029,20 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5017,20 +5304,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -5055,7 +5328,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -5064,7 +5374,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -5106,12 +5416,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -5131,6 +5444,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -5847,6 +6173,20 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6137,20 +6477,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -6175,7 +6501,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -6184,7 +6547,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -6226,12 +6589,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -6251,6 +6617,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -6936,6 +7315,20 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7197,20 +7590,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -7235,7 +7614,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -7244,7 +7660,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -7286,12 +7702,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -7311,6 +7730,19 @@
         },
         "runtime": {
           "lib/uap/PanCardView.dll": {}
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
       "FirebaseDatabase.net/4.0.7": {
@@ -8027,6 +8459,20 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SkiaSharp/1.68.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll": {},
+          "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll": {},
+          "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -8317,20 +8763,6 @@
           "lib/win8/_._": {}
         }
       },
-      "TouchView/4.1.30": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.4.0"
-        },
-        "compile": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        },
-        "runtime": {
-          "lib/uap/TouchEffect.UWP.dll": {},
-          "lib/uap/TouchEffect.dll": {}
-        }
-      },
       "Win2D.uwp/1.20.0": {
         "type": "package",
         "compile": {
@@ -8355,7 +8787,44 @@
           "lib/uap10.0.10240/Plugin.Geolocator.dll": {}
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.Forms": "3.5.0.274416"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Plugin.Iconize.dll": {}
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Settings.dll": {}
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "compile": {
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
@@ -8364,7 +8833,7 @@
           "lib/uap10.0.16299/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/5.0.0.2012": {
+      "Xamarin.Forms/5.0.0.2401": {
         "type": "package",
         "dependencies": {
           "Microsoft.UI.Xaml": "2.4.3",
@@ -8406,12 +8875,15 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0"
         },
@@ -8449,6 +8921,18 @@
         "lib/uap/PanCardView.dll",
         "lib/win81/PanCardView.dll",
         "lib/wpa81/PanCardView.dll"
+      ]
+    },
+    "FirebaseAuthentication.net/3.7.2": {
+      "sha512": "d0Zc0tiE7NutI/jMX/T81LU/rX3HVBH8vtvKTbIeN6BCIQ+wipstz7tm5MnIgAeh4ehqCHTiVuMOHztqfCVCBQ==",
+      "type": "package",
+      "path": "firebaseauthentication.net/3.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebaseauthentication.net.3.7.2.nupkg.sha512",
+        "firebaseauthentication.net.nuspec",
+        "lib/netstandard1.1/Firebase.Auth.dll"
       ]
     },
     "FirebaseDatabase.net/4.0.7": {
@@ -13493,6 +13977,54 @@
         "runtimes/win/lib/netstandard1.0/System.Private.Uri.dll"
       ]
     },
+    "SkiaSharp/1.68.0": {
+      "sha512": "ptuxAKk9FiClNnAgWM8hVMCYw/B0hUJWZ8W6efnIAtJmJn/Xl4jvxxDF5WOqfQYCLVzxXw5gvBPVxvTLblFp0g==",
+      "type": "package",
+      "path": "skiasharp/1.68.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net45/SkiaSharp.targets",
+        "build/tizen40/SkiaSharp.targets",
+        "lib/MonoAndroid/SkiaSharp.dll",
+        "lib/MonoAndroid/SkiaSharp.xml",
+        "lib/Xamarin.Mac20/SkiaSharp.dll",
+        "lib/Xamarin.Mac20/SkiaSharp.xml",
+        "lib/Xamarin.TVOS/SkiaSharp.dll",
+        "lib/Xamarin.TVOS/SkiaSharp.xml",
+        "lib/Xamarin.WatchOS/SkiaSharp.dll",
+        "lib/Xamarin.WatchOS/SkiaSharp.xml",
+        "lib/Xamarin.iOS/SkiaSharp.dll",
+        "lib/Xamarin.iOS/SkiaSharp.xml",
+        "lib/net45/SkiaSharp.dll",
+        "lib/net45/SkiaSharp.xml",
+        "lib/netstandard1.3/SkiaSharp.dll",
+        "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.xml",
+        "lib/uap10.0/SkiaSharp.dll",
+        "lib/uap10.0/SkiaSharp.xml",
+        "runtimes/osx/native/libSkiaSharp.dylib",
+        "runtimes/tizen-armel/native/libSkiaSharp.so",
+        "runtimes/tizen-x86/native/libSkiaSharp.so",
+        "runtimes/win-x64/native/libSkiaSharp.dll",
+        "runtimes/win-x86/native/libSkiaSharp.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
+        "skiasharp.1.68.0.nupkg.sha512",
+        "skiasharp.nuspec",
+        "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -14688,27 +15220,6 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "TouchView/4.1.30": {
-      "sha512": "I7BS8m1rzJs5ZNy/4rXTu/xy2MdnIDRwXB78LrtIIoHkrBi/Hf0phAheiReVrIfaS+6i1M73jEz7u/m+6hdSwQ==",
-      "type": "package",
-      "path": "touchview/4.1.30",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/TouchEffect.Droid.dll",
-        "lib/MonoAndroid10/TouchEffect.dll",
-        "lib/Xamarin.Mac20/TouchEffect.Mac.dll",
-        "lib/Xamarin.Mac20/TouchEffect.dll",
-        "lib/Xamarin.iOS10/TouchEffect.dll",
-        "lib/Xamarin.iOS10/TouchEffect.iOS.dll",
-        "lib/netstandard2.0/TouchEffect.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/TouchEffect.dll",
-        "lib/uap/TouchEffect.UWP.dll",
-        "lib/uap/TouchEffect.dll",
-        "touchview.4.1.30.nupkg.sha512",
-        "touchview.nuspec"
-      ]
-    },
     "Win2D.uwp/1.20.0": {
       "sha512": "sFyNT2EiV6vmEFMrkiJdSolaKNyOyk+kfjgvXN8XqUhdEPqBd2zPrFdl7SojNHQGm2Br6JLIBOdrj9fB1Qy4GA==",
       "type": "package",
@@ -14756,10 +15267,130 @@
         "xam.plugin.geolocator.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.6.1": {
-      "sha512": "gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
+    "Xam.Plugin.Iconize/3.5.0.129": {
+      "sha512": "XLWwU+ZRRs1tM8quKDD3ZgdYgAftxyk9LhEQ8vdji8C9HsqVF+1El9Fdw9WbU/VBxGVoM5GWQ0tDb2uuT1QU7w==",
       "type": "package",
-      "path": "xamarin.essentials/1.6.1",
+      "path": "xam.plugin.iconize/3.5.0.129",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid90/Plugin.Iconize.dll",
+        "lib/monoandroid90/Plugin.Iconize.pdb",
+        "lib/monoandroid90/Plugin.Iconize.xml",
+        "lib/net472/Plugin.Iconize.dll",
+        "lib/net472/Plugin.Iconize.pdb",
+        "lib/net472/Plugin.Iconize.xml",
+        "lib/netstandard1.3/Plugin.Iconize.dll",
+        "lib/netstandard1.3/Plugin.Iconize.pdb",
+        "lib/netstandard1.3/Plugin.Iconize.xml",
+        "lib/netstandard2.0/Plugin.Iconize.dll",
+        "lib/netstandard2.0/Plugin.Iconize.pdb",
+        "lib/netstandard2.0/Plugin.Iconize.xml",
+        "lib/uap10.0.16299/Plugin.Iconize.dll",
+        "lib/uap10.0.16299/Plugin.Iconize.pdb",
+        "lib/uap10.0.16299/Plugin.Iconize.pri",
+        "lib/uap10.0.16299/Plugin.Iconize.xml",
+        "lib/xamarinios10/Plugin.Iconize.dll",
+        "lib/xamarinios10/Plugin.Iconize.pdb",
+        "lib/xamarinios10/Plugin.Iconize.xml",
+        "xam.plugin.iconize.3.5.0.129.nupkg.sha512",
+        "xam.plugin.iconize.nuspec"
+      ]
+    },
+    "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+      "sha512": "59HyuAaUzuloQmu/PVCDCJQMRuuhqmIpCQ+d5hH5Qp8AZsa/vDi5ulrXDKRMZSZt/xbXsyZV+aZ/W/SZaYt2Mg==",
+      "type": "package",
+      "path": "xam.plugins.forms.imagecircle/3.0.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/ImageCircle.Forms.Plugin.dll",
+        "lib/monoandroid71/ImageCircle.Forms.Plugin.xml",
+        "lib/netstandard1.0/ImageCircle.Forms.Plugin.dll",
+        "lib/netstandard1.0/ImageCircle.Forms.Plugin.xml",
+        "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll",
+        "lib/netstandard2.0/ImageCircle.Forms.Plugin.xml",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.dll",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.pri",
+        "lib/uap10.0.16299/ImageCircle.Forms.Plugin.xml",
+        "lib/xamarinios10/ImageCircle.Forms.Plugin.dll",
+        "lib/xamarinios10/ImageCircle.Forms.Plugin.xml",
+        "xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+        "xam.plugins.forms.imagecircle.nuspec"
+      ]
+    },
+    "Xam.Plugins.Settings/3.1.1": {
+      "sha512": "EQEYQJ64ZLqui5GWkLMavgqitHxwUHZHryTzUD1021UBuz1XwDSjPL45W0K4pPXjz9oKbg7YpRXKPR1luPr/5Q==",
+      "type": "package",
+      "path": "xam.plugins.settings/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/MonoAndroid10/Helpers/Settings.cs.pp",
+        "content/UAP10/Helpers/Settings.cs.pp",
+        "content/Xamarin.Mac20/Helpers/Settings.cs.pp",
+        "content/Xamarin.iOS10/Helpers/Settings.cs.pp",
+        "content/net45/Helpers/Settings.cs.pp",
+        "content/netstandard1.0/Helpers/Settings.cs.pp",
+        "content/xamarintvOS/Helpers/Settings.cs.pp",
+        "content/xamarinwatchOS/Helpers/Settings.cs.pp",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Settings.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Settings.dll",
+        "lib/MonoAndroid10/Plugin.Settings.pdb",
+        "lib/MonoAndroid10/Plugin.Settings.xml",
+        "lib/UAP10/Plugin.Settings.Abstractions.dll",
+        "lib/UAP10/Plugin.Settings.Abstractions.pdb",
+        "lib/UAP10/Plugin.Settings.Abstractions.xml",
+        "lib/UAP10/Plugin.Settings.XML",
+        "lib/UAP10/Plugin.Settings.dll",
+        "lib/UAP10/Plugin.Settings.pdb",
+        "lib/UAP10/Plugin.Settings.pri",
+        "lib/Xamarin.Mac20/Plugin.Settings.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.Settings.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.Settings.Abstractions.xml",
+        "lib/Xamarin.Mac20/Plugin.Settings.XML",
+        "lib/Xamarin.Mac20/Plugin.Settings.dll",
+        "lib/Xamarin.Mac20/Plugin.Settings.pdb",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Settings.dll",
+        "lib/Xamarin.iOS10/Plugin.Settings.xml",
+        "lib/net45/Plugin.Settings.Abstractions.dll",
+        "lib/net45/Plugin.Settings.Abstractions.pdb",
+        "lib/net45/Plugin.Settings.Abstractions.xml",
+        "lib/net45/Plugin.Settings.XML",
+        "lib/net45/Plugin.Settings.dll",
+        "lib/net45/Plugin.Settings.pdb",
+        "lib/netstandard1.0/Plugin.Settings.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Settings.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Settings.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Settings.deps.json",
+        "lib/netstandard1.0/Plugin.Settings.dll",
+        "lib/netstandard1.0/Plugin.Settings.xml",
+        "lib/xamarintvOS/Plugin.Settings.Abstractions.dll",
+        "lib/xamarintvOS/Plugin.Settings.Abstractions.pdb",
+        "lib/xamarintvOS/Plugin.Settings.Abstractions.xml",
+        "lib/xamarintvOS/Plugin.Settings.dll",
+        "lib/xamarintvOS/Plugin.Settings.pdb",
+        "lib/xamarintvOS/Plugin.Settings.xml",
+        "lib/xamarinwatchOS/Plugin.Settings.Abstractions.dll",
+        "lib/xamarinwatchOS/Plugin.Settings.Abstractions.pdb",
+        "lib/xamarinwatchOS/Plugin.Settings.Abstractions.xml",
+        "lib/xamarinwatchOS/Plugin.Settings.dll",
+        "lib/xamarinwatchOS/Plugin.Settings.pdb",
+        "lib/xamarinwatchOS/Plugin.Settings.xml",
+        "readme.txt",
+        "xam.plugins.settings.3.1.1.nupkg.sha512",
+        "xam.plugins.settings.nuspec"
+      ]
+    },
+    "Xamarin.Essentials/1.7.2": {
+      "sha512": "3r2QA/54YZGw6o+cBmIQdvs9nkT1SNHHvFGl1jg2bJ/INmsPdSU4ddrwhIw6zSWSIMRbemKvXEVov1KwjRk6PQ==",
+      "type": "package",
+      "path": "xamarin.essentials/1.7.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -14768,15 +15399,6 @@
         "lib/monoandroid10.0/Xamarin.Essentials.dll",
         "lib/monoandroid10.0/Xamarin.Essentials.pdb",
         "lib/monoandroid10.0/Xamarin.Essentials.xml",
-        "lib/monoandroid80/Xamarin.Essentials.dll",
-        "lib/monoandroid80/Xamarin.Essentials.pdb",
-        "lib/monoandroid80/Xamarin.Essentials.xml",
-        "lib/monoandroid81/Xamarin.Essentials.dll",
-        "lib/monoandroid81/Xamarin.Essentials.pdb",
-        "lib/monoandroid81/Xamarin.Essentials.xml",
-        "lib/monoandroid90/Xamarin.Essentials.dll",
-        "lib/monoandroid90/Xamarin.Essentials.pdb",
-        "lib/monoandroid90/Xamarin.Essentials.xml",
         "lib/netstandard1.0/Xamarin.Essentials.dll",
         "lib/netstandard1.0/Xamarin.Essentials.pdb",
         "lib/netstandard1.0/Xamarin.Essentials.xml",
@@ -14803,14 +15425,14 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.6.1.nupkg.sha512",
+        "xamarin.essentials.1.7.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/5.0.0.2012": {
-      "sha512": "Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
+    "Xamarin.Forms/5.0.0.2401": {
+      "sha512": "fk/V8QWjeyo8UXcsqsNRMd6o1H5PBfyXYm97nxvhMsJIdeqDgfRWyIsSurM8uLGLQGdQP23R+hHj7vcTSo2UjQ==",
       "type": "package",
-      "path": "xamarin.forms/5.0.0.2012",
+      "path": "xamarin.forms/5.0.0.2401",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -15019,7 +15641,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.5.0.0.2012.nupkg.sha512",
+        "xamarin.forms.5.0.0.2401.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -15052,11 +15674,16 @@
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.16299": [
       "CardsView >= 2.4.9",
+      "FirebaseDatabase.net >= 4.0.7",
+      "Google.Api.CommonProtos >= 2.5.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.12",
+      "NETStandard.Library >= 2.0.3",
+      "Newtonsoft.Json >= 13.0.1",
       "PratikKargo >= 1.0.0",
-      "TouchView >= 4.1.30",
-      "Xamarin.Essentials >= 1.6.1",
-      "Xamarin.Forms >= 5.0.0.2012",
+      "Xam.Plugin.Geolocator >= 4.5.0.6",
+      "Xam.Plugins.Settings >= 3.1.1",
+      "Xamarin.Essentials >= 1.7.2",
+      "Xamarin.Forms >= 5.0.0.2401",
       "Xamarin.Forms.GoogleMaps >= 3.3.0"
     ]
   },
@@ -15111,21 +15738,41 @@
             "target": "Package",
             "version": "[2.4.9, )"
           },
+          "FirebaseDatabase.net": {
+            "target": "Package",
+            "version": "[4.0.7, )"
+          },
+          "Google.Api.CommonProtos": {
+            "target": "Package",
+            "version": "[2.5.0, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.12, )"
           },
-          "TouchView": {
+          "NETStandard.Library": {
             "target": "Package",
-            "version": "[4.1.30, )"
+            "version": "[2.0.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          },
+          "Xam.Plugin.Geolocator": {
+            "target": "Package",
+            "version": "[4.5.0.6, )"
+          },
+          "Xam.Plugins.Settings": {
+            "target": "Package",
+            "version": "[3.1.1, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.6.1, )"
+            "version": "[1.7.2, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[5.0.0.2012, )"
+            "version": "[5.0.0.2401, )"
           },
           "Xamarin.Forms.GoogleMaps": {
             "target": "Package",
@@ -15162,24 +15809,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2401 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n PratikKargo.UWP -> PratikKargo -> Xamarin.Forms (>= 5.0.0.2401) \r\n PratikKargo.UWP -> Xamarin.Forms (>= 5.0.0.2012)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "UAP,Version=v10.0.16299",
-        "UAP,Version=v10.0.16299/win10-arm",
-        "UAP,Version=v10.0.16299/win10-arm-aot",
-        "UAP,Version=v10.0.16299/win10-arm64-aot",
-        "UAP,Version=v10.0.16299/win10-x64",
-        "UAP,Version=v10.0.16299/win10-x64-aot",
-        "UAP,Version=v10.0.16299/win10-x86",
-        "UAP,Version=v10.0.16299/win10-x86-aot"
-      ]
-    }
-  ]
+  }
 }

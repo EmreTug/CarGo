@@ -10,13 +10,16 @@
       "PratikKargo/1.0.0": {
         "dependencies": {
           "CardsView": "2.4.9",
+          "FirebaseAuthentication.net": "3.7.2",
           "FirebaseDatabase.net": "4.0.7",
           "Google.Api.CommonProtos": "2.5.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "13.0.1",
-          "TouchView": "4.1.30",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xamarin.Essentials": "1.6.1",
+          "Xam.Plugin.Iconize": "3.5.0.129",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Settings": "2.5.1",
+          "Xamarin.Essentials": "1.7.2",
           "Xamarin.Forms": "5.0.0.2401",
           "Xamarin.Forms.GoogleMaps": "3.3.0",
           "Mono.Android": "0.0.0.0"
@@ -28,6 +31,18 @@
       "CardsView/2.4.9": {
         "runtime": {
           "lib/netstandard2.0/PanCardView.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FirebaseAuthentication.net/3.7.2": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -212,17 +227,6 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "TouchView/4.1.30": {
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2401"
-        },
-        "runtime": {
-          "lib/netstandard2.0/TouchEffect.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "Xam.Plugin.Geolocator/4.5.0.6": {
         "runtime": {
           "lib/netstandard2.0/Plugin.Geolocator.dll": {
@@ -231,7 +235,41 @@
           }
         }
       },
-      "Xamarin.Essentials/1.6.1": {
+      "Xam.Plugin.Iconize/3.5.0.129": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2401"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Iconize.dll": {
+            "assemblyVersion": "3.5.0.129",
+            "fileVersion": "3.5.0.129"
+          }
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2401"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xam.Plugins.Settings/2.5.1": {
+        "runtime": {
+          "lib/net45/Plugin.Settings.Abstractions.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          },
+          "lib/net45/Plugin.Settings.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
+      },
+      "Xamarin.Essentials/1.7.2": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
@@ -291,6 +329,13 @@
       "sha512": "sha512-XjF8Vx/BAlEXQPdFbUMjQFTplVnY1ojl0KMrsqmBuxg1nTPIXHkDRdZCLwZnSK5f7CfqZDrIV7eUk21x9toY3A==",
       "path": "cardsview/2.4.9",
       "hashPath": "cardsview.2.4.9.nupkg.sha512"
+    },
+    "FirebaseAuthentication.net/3.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d0Zc0tiE7NutI/jMX/T81LU/rX3HVBH8vtvKTbIeN6BCIQ+wipstz7tm5MnIgAeh4ehqCHTiVuMOHztqfCVCBQ==",
+      "path": "firebaseauthentication.net/3.7.2",
+      "hashPath": "firebaseauthentication.net.3.7.2.nupkg.sha512"
     },
     "FirebaseDatabase.net/4.0.7": {
       "type": "package",
@@ -439,13 +484,6 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "TouchView/4.1.30": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-I7BS8m1rzJs5ZNy/4rXTu/xy2MdnIDRwXB78LrtIIoHkrBi/Hf0phAheiReVrIfaS+6i1M73jEz7u/m+6hdSwQ==",
-      "path": "touchview/4.1.30",
-      "hashPath": "touchview.4.1.30.nupkg.sha512"
-    },
     "Xam.Plugin.Geolocator/4.5.0.6": {
       "type": "package",
       "serviceable": true,
@@ -453,12 +491,33 @@
       "path": "xam.plugin.geolocator/4.5.0.6",
       "hashPath": "xam.plugin.geolocator.4.5.0.6.nupkg.sha512"
     },
-    "Xamarin.Essentials/1.6.1": {
+    "Xam.Plugin.Iconize/3.5.0.129": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
-      "path": "xamarin.essentials/1.6.1",
-      "hashPath": "xamarin.essentials.1.6.1.nupkg.sha512"
+      "sha512": "sha512-XLWwU+ZRRs1tM8quKDD3ZgdYgAftxyk9LhEQ8vdji8C9HsqVF+1El9Fdw9WbU/VBxGVoM5GWQ0tDb2uuT1QU7w==",
+      "path": "xam.plugin.iconize/3.5.0.129",
+      "hashPath": "xam.plugin.iconize.3.5.0.129.nupkg.sha512"
+    },
+    "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59HyuAaUzuloQmu/PVCDCJQMRuuhqmIpCQ+d5hH5Qp8AZsa/vDi5ulrXDKRMZSZt/xbXsyZV+aZ/W/SZaYt2Mg==",
+      "path": "xam.plugins.forms.imagecircle/3.0.0.5",
+      "hashPath": "xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512"
+    },
+    "Xam.Plugins.Settings/2.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-74FJFEiDiItFm73B+k5bBGXu7ZJF1J8u+GNjS/xYgtgSqty+5Nc8ZWwxx0BqzlrDmGnKPSnNcTf2vm5Sw46bIw==",
+      "path": "xam.plugins.settings/2.5.1",
+      "hashPath": "xam.plugins.settings.2.5.1.nupkg.sha512"
+    },
+    "Xamarin.Essentials/1.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3r2QA/54YZGw6o+cBmIQdvs9nkT1SNHHvFGl1jg2bJ/INmsPdSU4ddrwhIw6zSWSIMRbemKvXEVov1KwjRk6PQ==",
+      "path": "xamarin.essentials/1.7.2",
+      "hashPath": "xamarin.essentials.1.7.2.nupkg.sha512"
     },
     "Xamarin.Forms/5.0.0.2401": {
       "type": "package",
