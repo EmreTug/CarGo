@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
-  </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\xamarin.google.guava.listenablefuture\1.0.0.2\buildTransitive\monoandroid50\Xamarin.Google.Guava.ListenableFuture.targets" Condition="Exists('C:\Program Files (x86)\Microsoft\Xamarin\NuGet\xamarin.google.guava.listenablefuture\1.0.0.2\buildTransitive\monoandroid50\Xamarin.Google.Guava.ListenableFuture.targets')" />
     <Import Project="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\xamarin.androidx.multidex\2.0.1.5\buildTransitive\monoandroid90\Xamarin.AndroidX.MultiDex.targets" Condition="Exists('C:\Program Files (x86)\Microsoft\Xamarin\NuGet\xamarin.androidx.multidex\2.0.1.5\buildTransitive\monoandroid90\Xamarin.AndroidX.MultiDex.targets')" />

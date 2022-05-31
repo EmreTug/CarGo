@@ -4,15 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:PratikKargo.Model"
-             
+             NavigationPage.HasNavigationBar="False"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="PratikKargo.MapPage"
              >
     <Grid>
         <maps:Map   HasZoomEnabled="True" x:Name="map" MapType="Terrain"   />
-        <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
-            <Button Text="Rota Çiz" x:Name="TrackPath" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="TrackPath_Clicked" VerticalOptions="EndAndExpand" IsVisible="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy2}"/>
-            <Button Text="Başla" x:Name="PickupButton" BackgroundColor="Black" TextColor="White" Padding="10" Clicked="Start" VerticalOptions="EndAndExpand" IsVisible="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy2}"/>
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Button Text="Rota Çiz" x:Name="buton"  TextColor="White" Padding="10" Clicked="Start"  IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy3}"  HorizontalOptions="CenterAndExpand" CornerRadius="12" WidthRequest="190"  Margin="0,0,0,10"  BackgroundColor="#39CB5B"/>
+
+            <Button Text="İptal" x:Name="TrackPath"  TextColor="White" Padding="10" Clicked="TrackPath_Clicked"  IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy3}"   HorizontalOptions="CenterAndExpand" CornerRadius="12" WidthRequest="190" Margin="0,0,0,10" BackgroundColor="#FF7573" />
         </StackLayout>
     </Grid>
 </ContentPage>

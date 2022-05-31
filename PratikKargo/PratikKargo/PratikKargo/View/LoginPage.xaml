@@ -3,6 +3,7 @@
              xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PratikKargo.View.LoginPage"
+             BackgroundColor="White"
              NavigationPage.HasNavigationBar="False"
              
              >
@@ -28,46 +29,39 @@
                 <ColumnDefinition Width="32" />
             </Grid.ColumnDefinitions>
 
-            <Label 
-                Grid.Row="0" 
-                Grid.Column="0" 
-                Grid.ColumnSpan="3"
-                Text="Login"
-                Style="{StaticResource LabelTitle}"
-            />
 
-            
 
-            <Image 
-                Source="User" 
+                <Image 
+                Source="user.png"
                 Grid.Row="1" 
-                Grid.ColumnSpan="4"  
-            />
+                Grid.ColumnSpan="4"     
+                Style="{StaticResource stlMainFrame}"/>
+            
+           
 
             <Entry 
                 x:Name="email"
                 Grid.Row="2" 
                 Grid.ColumnSpan="4"
-                Placeholder="Username or email address" 
+                Placeholder="Kullanıcı Adı veya Email Adresi Giriniz." 
                 Text="{Binding Username}"
                 Style="{StaticResource Entry}"
             />
 
             <Entry 
-                x:Name="password"
                 
+                x:Name="password"
                 IsPassword="True"
                 Grid.Row="3" 
                 Grid.ColumnSpan="4" 
                 Text="{Binding Password}"
                 Style="{StaticResource Entry}"
-                Placeholder="Password"  
+                Placeholder="Şifre Giriniz."  
                 />
 
-           
-
             <Button 
-                Text="LOG IN"
+                
+                Text="Giriş Yap"
                 Grid.Row="4" Grid.ColumnSpan="4"
                Clicked="loginbutton_Clicked"
                 Command="{Binding LoginCommand}"

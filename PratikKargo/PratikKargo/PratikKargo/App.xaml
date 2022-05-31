@@ -4,6 +4,10 @@
              x:Class="PratikKargo.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="White"/>
+                <Setter Property="BarTextColor" Value="#2E99BB" />
+            </Style>
             <Style x:Key="stlContactBtn" TargetType="Button">
                 <Setter Property="TranslationY"     Value="-50"/>
                 <Setter Property="TranslationX"     Value="45"/>
@@ -55,7 +59,7 @@
                 <Setter Property="PlaceholderColor" Value="#D9D9D9" />
             </Style>
             <Color x:Key="CellColor">#58D68D</Color>
-            <Color x:Key="NavigationBarColor">#58D68D</Color>
+            <Color x:Key="NavigationBarColor">#ff7f00</Color>
             <Color x:Key="BackgroundColor">#fcfcfc</Color>
             <Color x:Key="TextColor">Black</Color>
             <Color x:Key="DistanceColor">#686d74</Color>

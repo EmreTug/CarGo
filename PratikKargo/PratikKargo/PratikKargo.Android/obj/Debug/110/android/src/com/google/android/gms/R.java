@@ -71,31 +71,31 @@ public final class R {
 		public static final int common_google_signin_btn_text_light_focused = 0x7f070071;
 		public static final int common_google_signin_btn_text_light_normal = 0x7f070072;
 		public static final int common_google_signin_btn_text_light_normal_background = 0x7f070073;
-		public static final int googleg_disabled_color_18 = 0x7f070079;
-		public static final int googleg_standard_color_18 = 0x7f07007a;
+		public static final int googleg_disabled_color_18 = 0x7f07007a;
+		public static final int googleg_standard_color_18 = 0x7f07007b;
 	}
 	public static final class id {
 		public static final int adjust_height = 0x7f080048;
 		public static final int adjust_width = 0x7f080049;
 		public static final int auto = 0x7f080056;
-		public static final int center = 0x7f080071;
-		public static final int dark = 0x7f080093;
-		public static final int hybrid = 0x7f0800db;
-		public static final int icon_only = 0x7f0800df;
-		public static final int light = 0x7f0800f2;
-		public static final int match_parent = 0x7f0800fe;
-		public static final int none = 0x7f080141;
-		public static final int normal = 0x7f080142;
-		public static final int radio = 0x7f08015c;
-		public static final int satellite = 0x7f080167;
-		public static final int slide = 0x7f08018c;
-		public static final int standard = 0x7f08019f;
-		public static final int terrain = 0x7f0801bb;
-		public static final int text = 0x7f0801c0;
-		public static final int text2 = 0x7f0801c1;
-		public static final int toolbar = 0x7f0801d5;
-		public static final int wide = 0x7f0801ef;
-		public static final int wrap_content = 0x7f0801f3;
+		public static final int center = 0x7f080072;
+		public static final int dark = 0x7f080094;
+		public static final int hybrid = 0x7f0800dc;
+		public static final int icon_only = 0x7f0800e0;
+		public static final int light = 0x7f0800f3;
+		public static final int match_parent = 0x7f0800ff;
+		public static final int none = 0x7f080142;
+		public static final int normal = 0x7f080143;
+		public static final int radio = 0x7f08015d;
+		public static final int satellite = 0x7f080168;
+		public static final int slide = 0x7f08018d;
+		public static final int standard = 0x7f0801a0;
+		public static final int terrain = 0x7f0801bc;
+		public static final int text = 0x7f0801c1;
+		public static final int text2 = 0x7f0801c2;
+		public static final int toolbar = 0x7f0801d6;
+		public static final int wide = 0x7f0801f0;
+		public static final int wrap_content = 0x7f0801f4;
 	}
 	public static final class integer {
 		public static final int google_play_services_version = 0x7f090009;

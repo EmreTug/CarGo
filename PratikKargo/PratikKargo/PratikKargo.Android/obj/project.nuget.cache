@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sI9kbt6dcmRa+GZtXerU14ykLOPizvzploLkPN1z319HkVvD/wvhPwPA5VnZY+woRo9s9CybZABgmWMXT+tPEw==",
+  "dgSpecHash": "Y3UztKatZiiUxYT07ZfyMif2X8oKEqPRHvzT/g2VQkISix1PDinO0AJLvw3h8De6KdDL6ZmUm+/hk/lMTcaMew==",
   "success": false,
   "projectFilePath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.Android\\PratikKargo.Android.csproj",
   "expectedPackageFiles": [
@@ -90,6 +90,7 @@
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.androidx.viewpager\\1.0.0.8\\xamarin.androidx.viewpager.1.0.0.8.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.10\\xamarin.androidx.viewpager2.1.0.0.10.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.build.download\\0.4.9\\xamarin.build.download.0.4.9.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xamarin.communitytoolkit\\2.0.1\\xamarin.communitytoolkit.2.0.1.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.essentials\\1.7.2\\xamarin.essentials.1.7.2.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms.googlemaps\\3.3.0\\xamarin.forms.googlemaps.3.3.0.nupkg.sha512",

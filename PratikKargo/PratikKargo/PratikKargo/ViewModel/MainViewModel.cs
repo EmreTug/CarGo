@@ -1,190 +1,150 @@
-﻿using System;
+﻿using PratikKargo.Model;
+using PratikKargo.Services;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Linq.Expressions;
+using System.Reflection;
+using Xamarin.Essentials;
+using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace PratikKargo.ViewModel
 {
-    public sealed class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
-        public string Title => "CarGo";
 
-
-        private Item _selectedItem;
-        public Item SelectedItem
+        public MainViewModel()
         {
-            get => _selectedItem;
-            set
-            {
-                if (_selectedItem != null)
-                {
-                    _selectedItem.FontAttributes = FontAttributes.None;
-                    _selectedItem.FontFamily = "AvenirNext-DemiBold";
-                }
-                value.FontAttributes = FontAttributes.Bold;
-                value.FontFamily = "AvenirNext-Bold";
-                _selectedItem = value;
-            }
+            LoadProductsAsync();
+
+        }
+        private void LoadProductsAsync()
+        {
+
+            AllCargo = StaticClass.AllCargo;
+
+            Completed = StaticClass.Completed;
+
+              
+
+          
         }
 
-        public Item[] Items { get; } =
+        private ObservableCollection<CargoMain> _AllCargo;
+        public ObservableCollection<CargoMain> AllCargo
         {
-            new Item
+            get
             {
-                Title = "Task",
-                Repos = new Repo[]
+                if (_AllCargo == null)
                 {
-
-                    new Repo
-                    {
-                        number=1,
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                        distance="800 m"
-                    },
-                     new Repo
-                    {
-                                                 number=2,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                      distance="800 m"
-                    },  new Repo
-                    {
-                                                 number=2,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                      distance="800 m"
-                    },  new Repo
-                    {
-                                                 number=2,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                      distance="800 m"
-                    },  new Repo
-                    {
-                                                 number=2,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                      distance="800 m"
-                    },
-                      new Repo
-                    {
-                                                  number=3,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="2524 Olympic Dr EOak Harbor, Washington(WA), 98277",
-                      distance="800 m"
-                    },
-                    new Repo
-                    {
-                                                number=4,
-
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="mahmutpasa mah. cadde. apt no:3",
-                      distance="800 m"
-                    },
-
+                    _AllCargo = new ObservableCollection<CargoMain>();
 
                 }
-            },
-            new Item
+                return _AllCargo;
+            }
+            set
             {
-                Title = "Completed",
-                Repos = new Repo[]
+                _AllCargo = value;
+
+            }
+        }
+
+        private ObservableCollection<CargoMain> _completed;
+        public  ObservableCollection<CargoMain> Completed
+        {
+            get
+            {
+                if (_completed == null)
                 {
-                      new Repo
-                    {
-                          number=1,
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="mahmutpasa mah. cadde. apt no:3",
-                      distance="800 m"
-                    },
-                    new Repo
-                    {
-                        number=2,
-                      NameSurname= " isim Soyisim",
-                      phoneNumber="03056465234",
-                      address="mahmutpasa mah. cadde. apt no:3",
-                      distance="800 m"
-                    },
+                    _completed = new ObservableCollection<CargoMain>();
 
                 }
+                return _completed;
             }
-        };
-    }
-
-    public sealed class Item : BindableObject
-    {
-        public string Title { get; set; }
-        public Repo[] Repos { get; set; }
-
-        private FontAttributes _fontAttributes;
-        public FontAttributes FontAttributes
-        {
-            get => _fontAttributes;
             set
             {
-                _fontAttributes = value;
-                OnPropertyChanged();
+                _completed = value;
+
             }
         }
+        //    public static Repo[] repos;
 
-        private string _fontFamily = "AvenirNext-DemiBold";
-        public string FontFamily
+
+        //    public string Title => "CarGo";
+
+
+
+
+        //    public static Item[] Items { get; } =
+        //    {
+        //        new Item
+        //        {
+        //            Title = "Task",
+        //            Repos =repos },
+        //        new Item
+        //        {
+        //            Title = "Completed",
+        //            Repos =repos
+        //        }
+        //    };
+        //}
+
+        //public sealed class Item : BindableObject
+        //{
+        //    public string Title { get; set; }
+        //    public Repo[] Repos { get; set; }
+
+        //    private FontAttributes _fontAttributes;
+        //    public FontAttributes FontAttributes
+        //    {
+        //        get => _fontAttributes;
+        //        set
+        //        {
+        //            _fontAttributes = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private string _fontFamily = "AvenirNext-DemiBold";
+        //    public string FontFamily
+        //    {
+        //        get => _fontFamily;
+        //        set
+        //        {
+        //            _fontFamily = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
+
+        //public sealed class Repo : BindableObject
+        //{
+        //    public string NameSurname { get; set; }
+        //    public string phoneNumber { get; set; }
+        //    public string address { get; set; }
+        //    public string distance { get; set; }
+        //    public int number { get; set; }
+        //    public string X { get; set; }
+        //    public string Y { get; set; }
+
+
+
+
+
+
+
+        //}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string PropertyName = null)
         {
-            get => _fontFamily;
-            set
-            {
-                _fontFamily = value;
-                OnPropertyChanged();
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
-    }
-
-    public sealed class Repo : BindableObject
-    {
-        public string NameSurname { get; set; }
-        public string phoneNumber { get; set; }
-        public string address { get; set; }
-        public string distance { get; set; }
-        public int number { get; set; }
-
-
-
-
-        private bool _isExpanded = true;
-        public bool IsExpanded
-        {
-            get => _isExpanded;
-            set
-            {
-                _isExpanded = true;
-                OnPropertyChanged();
-            }
-        }
-
-        public Repo()
-        {
-            TapCommand = new Command(() =>
-            {
-                IsExpanded = IsExpanded;
-            });
-
-        }
-
-        public ICommand TapCommand { get; }
     }
 }

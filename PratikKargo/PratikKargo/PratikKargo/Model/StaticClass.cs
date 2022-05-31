@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using static PratikKargo.MainPage;
 
 namespace PratikKargo.Model
 {
@@ -62,12 +64,74 @@ namespace PratikKargo.Model
             }
         }
 
+        private bool _isBusy3;
 
+        public bool IsBusy3
+        {
+            get
+            {
+                return _isBusy3;
+            }
 
+            set
+            {
+                _isBusy3 = value;
+                OnPropertyChanged("IsBusy3");
 
+            }
+        }
 
+        private static int _nokta;
 
+        public static int Nokta
+        {
+            get
+            {
+                return _nokta;
+            }
 
+            set
+            {
+                _nokta = value;
+
+            }
+        }
+        static private ObservableCollection<CargoMain> _AllCargo;
+        public static ObservableCollection<CargoMain> AllCargo
+        {
+            get
+            {
+                if (_AllCargo == null)
+                {
+                    _AllCargo = new ObservableCollection<CargoMain>();
+
+                }
+                return _AllCargo;
+            }
+            set
+            {
+                _AllCargo = value;
+
+            }
+        }
+        private static ObservableCollection<CargoMain> _completed;
+        public static ObservableCollection<CargoMain> Completed
+        {
+            get
+            {
+                if (_completed == null)
+                {
+                    _completed = new ObservableCollection<CargoMain>();
+
+                }
+                return _completed;
+            }
+            set
+            {
+                _completed = value;
+
+            }
+        }
 
         //private ctor so you need to use the Instance prop
         private StaticClass()

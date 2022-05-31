@@ -13,50 +13,54 @@ namespace PratikKargo.Services
     {
         FirebaseClient firebase = new FirebaseClient("https://kargo-b7ed8-default-rtdb.firebaseio.com/");
 
-        public async Task<List<Person>> GetAllPersons()
+        public async Task<List<Cargo>> GetAllCargo()
         {
 
             return (await firebase
-              .Child("Persons")
-              .OnceAsync<Person>()).Select(item => new Person
+              .Child("Cargo")
+              .OnceAsync<Cargo>()).Select(item => new Cargo
               {
-                  Name = item.Object.Name,
-                  PersonId = item.Object.PersonId
+                  NameSurname = item.Object.NameSurname,
+                  KargoId = item.Object.KargoId,
+                  Adress=item.Object.Adress,
+                  PhoneNumber=item.Object.PhoneNumber,
+                  X=item.Object.X,
+                  Y=item.Object.Y
               }).ToList();
         }
-        public async Task AddPerson(int personId, string name)
+        public async Task AddCargo(int kargoId, string name,string adress, string number,string x,string y)
         {
 
             await firebase
-              .Child("Persons")
-              .PostAsync(new Person() { PersonId = personId, Name = name });
+              .Child("Cargo")
+              .PostAsync(new Cargo() { KargoId = kargoId, NameSurname = name,Adress=adress,PhoneNumber =number,X=x,Y=y});
         }
-        public async Task<Person> GetPerson(int personId)
+        public async Task<Cargo> GetCargo(int kargoId)
         {
-            var allPersons = await GetAllPersons();
+            var allCargo = await GetAllCargo();
             await firebase
-              .Child("Persons")
-              .OnceAsync<Person>();
-            return allPersons.Where(a => a.PersonId == personId).FirstOrDefault();
+              .Child("Cargo")
+              .OnceAsync<Cargo>();
+            return allCargo.Where(a => a.KargoId ==kargoId ).FirstOrDefault();
         }
-        public async Task UpdatePerson(int personId, string name)
+        public async Task UpdateCargo(int kargoId, string name,string number,string adress,string x,string y)
         {
-            var toUpdatePerson = (await firebase
-              .Child("Persons")
-              .OnceAsync<Person>()).Where(a => a.Object.PersonId == personId).FirstOrDefault();
+            var toUpdateCargo = (await firebase
+              .Child("Cargo")
+              .OnceAsync<Cargo>()).Where(a => a.Object.KargoId == kargoId).FirstOrDefault();
 
             await firebase
-              .Child("Persons")
-              .Child(toUpdatePerson.Key)
-              .PutAsync(new Person() { PersonId = personId, Name = name });
+              .Child("Cargo")
+              .Child(toUpdateCargo.Key)
+              .PutAsync(new Cargo() { KargoId = kargoId, NameSurname = name,Adress=adress,PhoneNumber=number,X=x,Y=y });
         }
 
-        public async Task DeletePerson(int personId)
+        public async Task DeleteCarg(int kargoId)
         {
-            var toDeletePerson = (await firebase
-              .Child("Persons")
-              .OnceAsync<Person>()).Where(a => a.Object.PersonId == personId).FirstOrDefault();
-            await firebase.Child("Persons").Child(toDeletePerson.Key).DeleteAsync();
+            var toDeleteCargo = (await firebase
+              .Child("Cargo")
+              .OnceAsync<Cargo>()).Where(a => a.Object.KargoId == kargoId).FirstOrDefault();
+            await firebase.Child("Cargo").Child(toDeleteCargo.Key).DeleteAsync();
 
         }
     }

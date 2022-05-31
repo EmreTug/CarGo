@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LJgfaMfPCS5KDE4Hhcem4abzq6bWNUznPB8Y5pj9QUdIHWUh45fi2Xt+z6rRXJkF+lvsBvbnQpMjd/z/EWUWoA==",
+  "dgSpecHash": "DzOzpTr4BmT2sS06rLxfx+88AZZvRIWwHReAveYaJE8hIYh2xJzoT7PAtbCJs/7q222VbkaAQBSaAN22NRPKuA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Msi\\Documents\\GitHub\\Kargo-Da--t-m-Problemi\\PratikKargo\\PratikKargo\\PratikKargo.iOS\\PratikKargo.iOS.csproj",
   "expectedPackageFiles": [
@@ -27,6 +27,7 @@
     "C:\\Users\\Msi\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.0.0.5\\xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xam.plugins.settings\\3.1.1\\xam.plugins.settings.3.1.1.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.build.download\\0.4.11\\xamarin.build.download.0.4.11.nupkg.sha512",
+    "C:\\Users\\Msi\\.nuget\\packages\\xamarin.communitytoolkit\\2.0.1\\xamarin.communitytoolkit.2.0.1.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.essentials\\1.7.2\\xamarin.essentials.1.7.2.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms\\5.0.0.2401\\xamarin.forms.5.0.0.2401.nupkg.sha512",
     "C:\\Users\\Msi\\.nuget\\packages\\xamarin.forms.googlemaps\\3.3.0\\xamarin.forms.googlemaps.3.3.0.nupkg.sha512",

@@ -10,6 +10,12 @@
                 <Label Margin="0,0,0,10" Text="Firebase Realtime Database" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
                 <Entry x:Name="txtId" Placeholder="ID"></Entry>
                 <Entry x:Name="txtName" Placeholder="Enter Name"></Entry>
+                <Entry x:Name="adress" Placeholder="Enter Adress"></Entry>
+
+                <Entry x:Name="number" Placeholder="number"></Entry>
+                <Entry x:Name="X" Placeholder="X"></Entry>
+                <Entry x:Name="Y" Placeholder="Y"></Entry>
+
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>
                     <Button x:Name="btnRetrive" WidthRequest="200" Text="Retrive" Clicked="BtnRetrive_Clicked"/>
@@ -19,10 +25,10 @@
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
                 </StackLayout>
 
-                <ListView x:Name="lstPersons">
+                <ListView x:Name="lstCargo">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Name}"></TextCell>
+                            <TextCell Text="{Binding Adress}"></TextCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

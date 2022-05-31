@@ -1,188 +1,151 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:local="clr-namespace:PratikKargo.Model"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PratikKargo.MainPage"
-               xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
-             
-             xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
-             Visual="Material"
-             BackgroundColor="{StaticResource BackgroundColor}"
-             Title="{Binding Title}"
-             xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
+                                xmlns:viewModels="clr-namespace:PratikKargo.ViewModel;assembly=PratikKargo "
+    xmlns:local="clr-namespace:PratikKargo.Model"
+
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+
              >
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
-
-    <NavigationPage.TitleView>
-        <Label Text="{Binding Title}" 
-               Padding="0,0,60,0"
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="CenterAndExpand"
-               TextColor="{StaticResource BackgroundColor}"
-               FontFamily="AvenirNext-Bold"
-               FontSize="25"/>
-    </NavigationPage.TitleView>
-
     <Grid>
-        <AbsoluteLayout>
+        <xct:TabView
+             Margin="0,0,0,95"
+                TabStripPlacement="Top"
+                TabStripBackgroundColor="#fcfcfc"
+                TabIndicatorColor="#2E99BB"
+              >
 
-
-            <ScrollView x:Name="RootScrollView"
-                    AbsoluteLayout.LayoutFlags="All"
-                    AbsoluteLayout.LayoutBounds="0,0,1,1"
-                   
-                    >
-
-                <AbsoluteLayout>
-                    <!-- Carousel -->
-                    <cards:CarouselView
-                    BackgroundColor="{StaticResource BackgroundColor}"
-                    x:Name="InfoLayout"
-                    AbsoluteLayout.LayoutFlags="WidthProportional"
-                    AbsoluteLayout.LayoutBounds="1,55,1,-1"
-                    ItemsSource="{Binding Items}">
-                        <cards:CarouselView.ItemTemplate>
+            <xct:TabViewItem
+                    Text="Task"
+                           TextColor="#2E99BB"
+               FontFamily="AvenirNext-Bold"
+              >
+                <Grid          
+> 
+                    <CollectionView ItemsSource="{Binding AllCargo}"
+                           Margin="0,20,0,0"
+                            
+                            BackgroundColor="#F7F8FB">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout
-                                Margin="10,10,10,0"
-                                Spacing="10"
-                                BindableLayout.ItemsSource="{Binding Repos}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
 
-                                            <Grid>
-                                                <StackLayout
-                                        
-                                                Padding="10,0,10,0">
+                                <Grid  HeightRequest="160" BackgroundColor="White" Padding="15" Margin="0,0,0,0">
 
-                                                    <Frame
-                                                   CornerRadius="10"
-                                                   Padding="0">
-                                                        <StackLayout
-                                                     
-                                                        Spacing="2"
-                                                    Padding="5,5,0,10"
-                                                       BackgroundColor="White"
-                                                        >
-
-
-                                                            <StackLayout
-                                                            Orientation="Horizontal"
-                                                        >
-
-                                                                <Label
-                                                            FontFamily="AvenirNext-Bold"
-                                                            TextColor="Green"
-                                                            FontSize="16"
-                                                            Text="{Binding number}" />
-                                                                <Label
-                                                            FontFamily="AvenirNext-Bold"
-                                                            TextColor="{StaticResource TextColor}"
-                                                            FontSize="16"
-                                                            Text="{Binding NameSurname}" />
-
-                                                            </StackLayout>
-                                                            <Label
-                                                            FontFamily="AvenirNext-Italic"
-                                                            FontAttributes="Italic"
-                                                            TextColor="{StaticResource TextColor}"
-                                                            FontSize="14"
-                                                            Text="{Binding phoneNumber}" />
-                                                            <Label Text="{Binding address}" FontFamily="AvenirNext-Regular" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource TextColor}"/>
-                                                            <Label Text="{Binding distance}" Padding="0,0,10,10" FontFamily="AvenirNext-Regular" FontSize="16" HorizontalOptions="EndAndExpand" TextColor="{StaticResource DistanceColor}"/>
+                                    <StackLayout  VerticalOptions="FillAndExpand" Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand" Padding="10,0,0,0" Margin="0,0,0,0">
 
 
 
-                                                        </StackLayout>
+                                        <StackLayout WidthRequest="350"  VerticalOptions="CenterAndExpand">
+                                            <StackLayout Spacing="2" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                                                <Label Text="{Binding NameSurname}" TextColor="Black" MaxLines="2" 
+                                              HeightRequest="40" FontSize="16" FontAttributes="Bold" />
+                                                <Label Text="{Binding address}" TextColor="Black" MaxLines="2" 
+                                              HeightRequest="50" FontSize="16" />
+                                                <Grid  >
+                                                    <Label Text="{Binding phoneNumber}" TextColor="#22B07D" FontSize="18" 
+                                          FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
 
-                                                    </Frame>
-
-
-
-                                                    <Image HeightRequest="35"
-                                                       Source ="Line 168.png" HorizontalOptions="Start" Margin="40,1,0,1"/>
-
-
-                                                </StackLayout>
-
-
-                                            </Grid>
+                                                </Grid>
 
 
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
+
+
+                                            </StackLayout>
+                                             
+
+                                        </StackLayout>
+
+
+
+
+                                    </StackLayout>
+                                </Grid>
+
+
+
+
+
 
                             </DataTemplate>
-                        </cards:CarouselView.ItemTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
-                    </cards:CarouselView>
+                </Grid>
+            </xct:TabViewItem>
+
+            <xct:TabViewItem
+                    Text="Completed"
+                  
+                           TextColor="#2E99BB"
+               FontFamily="AvenirNext-Bold"
+               >
+                <Grid>
+                    <CollectionView ItemsSource="{Binding Completed}"
+                           Margin="0,20,0,0"
+                            
+                            BackgroundColor="#F7F8FB">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid  HeightRequest="160" BackgroundColor="White" Padding="15" Margin="0,0,0,0">
+
+                                    <StackLayout WidthRequest="350"  VerticalOptions="FillAndExpand" Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand" Padding="10,0,0,0" Margin="0,0,0,0">
 
 
-                </AbsoluteLayout>
+
+                                        <StackLayout   VerticalOptions="CenterAndExpand">
+                                            <StackLayout Spacing="2" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                                                <Label Text="{Binding NameSurname}" TextColor="Black" MaxLines="2"
+                                              HeightRequest="40" FontSize="16" FontAttributes="Bold" />
+                                                <Label Text="{Binding address}" TextColor="Black" MaxLines="2"
+                                              HeightRequest="50" FontSize="16" />
 
 
-            </ScrollView>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding phoneNumber}" TextColor="#22B07D" FontSize="18" 
+                                          FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
 
-            <Frame
-            Padding="0"
-            CornerRadius="15"
-            HasShadow="False"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            WidthRequest="320"
-            HeightRequest="60"
-            AbsoluteLayout.LayoutBounds="0.5, 0.97, Autosize, Autosize"
-            AbsoluteLayout.LayoutFlags="PositionProportional">
-
-                <Button Text="Start" x:Name="lbl" FontAttributes="Bold" Clicked="Button_Clicked_1" IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}" FontSize="Large" HeightRequest="50"  BackgroundColor="#2CD774" WidthRequest="70" />
-
-
-
-            </Frame>
+                                                </StackLayout>
+                                            </StackLayout>
 
 
 
 
-            <!-- Sticky Header-->
-            <Frame
-                    x:Name="TabsLayout"
-                    SizeChanged="OnTabsSizeChanged"
-                    Padding="0"
-                    CornerRadius="0"
-                    HasShadow="True"
-                    AbsoluteLayout.LayoutFlags="WidthProportional"
-                    AbsoluteLayout.LayoutBounds="0,0,1,50">
-                <controls:TabsControl
-                        x:Name="Tabs"
-                        StripeHeight="3"
-                        StripePosition="Bottom"
-                        StripeColor="{StaticResource NavigationBarColor}"
-                        BackgroundColor="{StaticResource BackgroundColor}">
+                                        </StackLayout>
 
-                    <controls:TabsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Label
-                                    FontFamily="{Binding FontFamily}"
-                                    FontSize="16"
-                                    FontAttributes="{Binding FontAttributes}"
-                                    VerticalTextAlignment="Center"
-                                    HorizontalTextAlignment="Center"
-                                    HorizontalOptions="FillAndExpand"
-                                    TextColor="{StaticResource NavigationBarColor}"
-                                    Text="{Binding Title}" />
-                        </DataTemplate>
-                    </controls:TabsControl.ItemTemplate>
-                </controls:TabsControl>
-            </Frame>
+
+
+
+                                    </StackLayout>
+                                </Grid>
 
 
 
 
 
-        </AbsoluteLayout>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </Grid>
+            </xct:TabViewItem>
+        </xct:TabView>
+        <Button Text="Start" x:Name="lbl" FontAttributes="Bold" Clicked="Button_Clicked_1"
+                IsEnabled="{Binding Source={x:Static local:StaticClass.Instance}, Path=IsBusy1}" FontSize="Large" Margin="50,0,50,20" CornerRadius="10"
+                HeightRequest="50"  VerticalOptions="End"  BackgroundColor="#2CD774" WidthRequest="70" />
         <Grid VerticalOptions="Center" HorizontalOptions="Center"   >
             <AbsoluteLayout>
                 <ActivityIndicator x:Name="activity"
@@ -197,6 +160,8 @@
             </AbsoluteLayout>
         </Grid>
     </Grid>
+
+
 
 
 </ContentPage>

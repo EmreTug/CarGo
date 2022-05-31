@@ -1,7 +1,10 @@
 ﻿using PratikKargo.Model;
 using PratikKargo.Services;
+using PratikKargo.View;
+using PratikKargo.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -81,19 +84,21 @@ namespace PratikKargo
             }
 
         }
-        //city class
+
         public class City
         {
-            Point location; //the city's location in x,y coordinate
-
+            Point location;
+            public int kargoId { get; set; }
             public City()
             {
                 location = new Point(0, 0);
+                kargoId = -1;
             }
 
-            public City(Point p)
+            public City(Point p, int id)
             {
                 location = p;
+                kargoId = id;
             }
             public void set_location(int x, int y)
             {
@@ -110,13 +115,11 @@ namespace PratikKargo
         }
 
         private List<Ant> ant_list;
-        public static List<City> city_list;
-
+        public static List<City> city_list = new List<City>();
         public static List<int> best_tour_list;
         private double best_tour_length = -1;
         private double[,] distances;
         private double[,] pheromones;
-        private int counter = 0;
         private int num_cities = 10;
         private int num_ants = 30;
         private int pherom_const = 100;
@@ -124,99 +127,199 @@ namespace PratikKargo
         private double BETA = 1.0;//weight of distance
         private double RHO = .5;//decay rate
         private int iterations = 100;
-        private int click_counter = 0;
 
 
 
+        //***********************************************************************************************************************
+
+
+
+        //***********************************************************************************************************************
         private Random rand_gen = new Random();
         public MainPage()
         {
             InitializeComponent();
 
-            num_cities = 5;
-            num_ants = 30;
-            city_list = new List<City>();
-            ant_list = new List<Ant>();
-            best_tour_list = new List<int>();
-            initialize_AntColony();
-            //----------------------------------------------------------------start ant colony
-       
-            // beecolony();
+
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+
+        protected override async void OnAppearing()
         {
+            if (StaticClass.AllCargo.Count < 1 && StaticClass.Completed.Count < 1)
+            {
+                StaticClass.Instance.IsBusy = true;
+                StaticClass.Instance.IsBusy1 = false;
 
-            initAnts();
-            Calculate();
-            // beecolony();
+                List<CargoDistance> distancess;
+
+                FirebaseHelper firebaseHelper = new FirebaseHelper();
+                var allCargo = await firebaseHelper.GetAllCargo().ConfigureAwait(false);
+                distancess = new List<CargoDistance>();
+                Random r = new Random();
+                int index = r.Next(0, allCargo.Count);
+                for (int i = 0; i < allCargo.Count; i++)
+
+                {
+                    if (i == index)
+                    {
+                        continue;
+                    }
+
+                    distancess.Add(new CargoDistance
+                    {
+                        adress = allCargo[i].Adress,
+                        namesurname = allCargo[i].NameSurname,
+                        number = allCargo[i].PhoneNumber,
+                        Distance = "500m",
+                        KargoId = allCargo[i].KargoId,
+                        X = allCargo[i].X,
+                        Y = allCargo[i].Y,
+                    });
+                }
+                distancess.Add(new CargoDistance
+                {
+                    adress = allCargo[index].Adress,
+                    number = allCargo[index].PhoneNumber,
+                    namesurname = allCargo[index].NameSurname,
+                    KargoId = allCargo[index].KargoId,
+                    Distance = "0m",
+                    X = allCargo[index].X,
+                    Y = allCargo[index].Y,
+                });
+                var veri = distancess.Select(n => new double[] { double.Parse(n.X, System.Globalization.CultureInfo.InvariantCulture), double.Parse(n.Y, System.Globalization.CultureInfo.InvariantCulture) }) // her bir satır için double dizi dön
+                .ToArray();
+
+                ObservableCollection<CargoMain> tempmodel = new ObservableCollection<CargoMain>();
+
+                var kumeler = KOrtalamalar(veri, 3);
+                for (int i = 0; i < distancess.Count; i++)
+                {
+                    if (kumeler[i] == 1)
+                    {
+                        tempmodel.Add(new CargoMain { address = distancess[i].adress, distance = distancess[i].Distance, NameSurname = distancess[i].namesurname, phoneNumber = distancess[i].number, X = distancess[i].X, Y = distancess[i].Y, kargoId = distancess[i].KargoId });
+                        city_list.Add(new City(new Point(Double.Parse(distancess[i].X, System.Globalization.CultureInfo.InvariantCulture), Double.Parse(distancess[i].Y, System.Globalization.CultureInfo.InvariantCulture)), distancess[i].KargoId));
+
+                    }
+                }
+
+                //distancess = distancess.OrderBy(a => a.Distance).Take(5).ToList();
+                //foreach (var item in distancess)
+                //{
+                //    tempmodel.Add(new CargoMain { address = item.adress, distance = item.Distance, NameSurname = item.namesurname, phoneNumber = item.number, X = item.X, Y = item.Y, kargoId = item.KargoId });
+                //    city_list.Add(new City(new Point(Double.Parse(item.X, System.Globalization.CultureInfo.InvariantCulture), Double.Parse(item.Y, System.Globalization.CultureInfo.InvariantCulture)), item.KargoId));
+                //}
+
+                ant_list = new List<Ant>();
+                best_tour_list = new List<int>();
+                await initialize_AntColony().ConfigureAwait(false);
+                num_cities = city_list.Count;
+                num_ants = 30;
+                for (int i = 0; i < best_tour_list.Count; i++)
+                {
+                    int nokta = best_tour_list[i];
+                    int kargoId = city_list[nokta].kargoId;
+                    var temp = tempmodel.FirstOrDefault(a => a.kargoId == kargoId);
+                    StaticClass.AllCargo.Add(temp);
+                }
+
+                StaticClass.Instance.IsBusy = false;
+                StaticClass.Instance.IsBusy1 = true;
+                beecolony();            }
+
+
 
         }
-
-
-        private void ant_colony_s_path_Load(object sender, EventArgs e)
+        //***********************************************************************************************************************************
+        static IList<int> KOrtalamalar(double[][] veri, int kumeSayisi)
         {
+            var random = new Random(5555);
+            // Her satırı rastgele bir kümeye ata
+            var sonucKumesi = Enumerable
+                                    .Range(0, veri.Length)
+                                    .Select(index => (AtananKume: random.Next(0, kumeSayisi),
+                                                  Degerler: veri[index]))
+                                    .ToList();
+
+            var boyutSayisi = veri[0].Length;
+            var limit = 10000;
+            var guncellendiMi = true;
+            while (--limit > 0)
+            {
+                // kümelerin merkez noktalarını hesapla
+                var merkezNoktalar = Enumerable.Range(0, kumeSayisi)
+                                                .AsParallel()
+                                                .Select(kumeNumarasi =>
+                                                (
+                                                kume: kumeNumarasi,
+                                                merkezNokta: Enumerable.Range(0, boyutSayisi)
+                                                                                    .Select(eksen => sonucKumesi.Where(s => s.AtananKume == kumeNumarasi)
+                                                                                    .Average(s => s.Degerler[eksen]))
+                                                                                    .ToArray())
+                                                        ).ToArray();
+                // Sonuç kümesini merkeze en yakın ile güncelle
+                guncellendiMi = false;
+                //for (int i = 0; i < sonucKumesi.Count; i++)
+                Parallel.For(0, sonucKumesi.Count, i =>
+                {
+                    var satir = sonucKumesi[i];
+                    var eskiAtananKume = satir.AtananKume;
 
 
+                    var yeniAtananKume = merkezNoktalar.Select(n => (KumeNumarasi: n.kume,
+                                                                    Uzaklik: UzaklikHesapla(satir.Degerler, n.merkezNokta)))
+                                         .OrderBy(x => x.Uzaklik)
+                                         .First()
+                                         .KumeNumarasi;
 
-            num_cities = 5;
-            num_ants = 30;
-            city_list = new List<City>();
-            ant_list = new List<Ant>();
-            best_tour_list = new List<int>();
+                    if (yeniAtananKume != eskiAtananKume)
+                    {
+                        sonucKumesi[i] = (AtananKume: yeniAtananKume, Degerler: satir.Degerler);
+                        guncellendiMi = true;
+                    }
+                });
+
+                if (!guncellendiMi)
+                {
+                    break;
+                }
+            } // while
+
+            return sonucKumesi.Select(k => k.AtananKume).ToArray();
         }
 
-
-        /******************************************************************
-         * Draw_button_Click: initiate ant colony method
-         ******************************************************************/
-
-
-
-        /******************************************************************
-         * DrawingPanel_MouseClick: click generates city
-         ******************************************************************/
-
-
-        /******************************************************************
-         * random_cities_button_Click: user wants to get random cities
-         ******************************************************************/
-        private void random_cities_button_Click(object sender, EventArgs e)
+        static double UzaklikHesapla(double[] birinciNokta, double[] ikinciNokta)
         {
-            initialize_AntColony();
+            var kareliUzaklik = birinciNokta
+                                    .Zip(ikinciNokta,
+                                        (n1, n2) => Math.Pow(n1 - n2, 2)).Sum();
+            return Math.Sqrt(kareliUzaklik);
         }
 
-        /******************************************************************
-         * define_cities_Button_Click: user wants to click/select cities
-         ******************************************************************/
-        private void define_cities_Button_Click(object sender, EventArgs e)
-        {
-            num_cities = 5;
-
-        }
 
 
         /********************************************************************
          * initialize_AntColony: intialize values for ant colony
          ********************************************************************/
-        private async void initialize_AntColony()
+        private async Task initialize_AntColony()
         {
+
             ant_list = new List<Ant>();
             best_tour_list = new List<int>();
             best_tour_length = -1;
-            num_cities = 5;
+            num_cities = city_list.Count;
             num_ants = 30;
             distances = new double[num_cities, num_cities];
             pheromones = new double[num_cities, num_cities];
             await initCities().ConfigureAwait(false);
-           await initAnts().ConfigureAwait(false);
-            await initPherom().ConfigureAwait(false);
             await initAnts().ConfigureAwait(false);
+            await initPherom().ConfigureAwait(false);
+            //   await initAnts().ConfigureAwait(false);
             await Calculate().ConfigureAwait(false);
         }
         /********************************************************************
-         * initAnts: add ants to random starting position
+         * initAnts: Karıncalar rastgele başlangıç pozisyonlarına eklenir
          ********************************************************************/
         private async Task initAnts()
         {
@@ -226,69 +329,52 @@ namespace PratikKargo
             for (int i = 0; i < num_ants; i++)
             {
                 rand_city = rand_gen.Next(0, num_cities);
-                ant_list.Add(new Ant(rand_city, num_cities));//random start location
-                ant_list[i].tourList[0] = ant_list[i].get_current_location();//set tour's first position as current location
-                ant_list[i].haveBeenList[ant_list[i].get_current_location()] = 1;//set to 1 to designate that we went to this city
+                ant_list.Add(new Ant(rand_city, num_cities));//rastgele başlangıç ​​konumu
+                ant_list[i].tourList[0] = ant_list[i].get_current_location();//geçerli konum olarak turun ilk konumunu ayarla
+                ant_list[i].haveBeenList[ant_list[i].get_current_location()] = 1;//bu şehre gittiğimizi belirtiyoruz
                 ant_list[i].tour_number = 1;
             }
         }
+
+
         /********************************************************************
-         * initCities: add cities with random staring positions
-         *             //can be changed to allow user input
+         * initCities: noktalar ekleniyor
          ********************************************************************/
         private async Task initCities()
         {
 
-
-            StaticClass.Instance.IsBusy = true;
-            StaticClass.Instance.IsBusy1 = false;
-
             distances = new double[num_cities, num_cities];
-            //initialize cities to random positions
-
-            city_list = new List<City>();
-            Task<Location> location = getLocation();
-            // city_list.Add(new City(new Point(location.Result.Altitude.Value, location.Result.Longitude)));
-
-            city_list.Add(new City(new Point(38.69301742336234, 35.549143170636405)));
-            city_list.Add(new City(new Point(38.69490153218463, 35.5430599207414)));
-            city_list.Add(new City(new Point(38.69591474353492, 35.539412116502035)));
-            city_list.Add(new City(new Point(38.698024856628976, 35.53226671175525)));
-            city_list.Add(new City(new Point(38.699088263038554, 35.52854380568901)));
+            // Task<Location> location = getLocation();
 
 
 
-
-
-
-
-
-
-            //compute city distances
-            //(n^2-n)/2 == number of connections btwn cities
+            //noktalar arası uzaklıklar google distance matrix api kullanarak alınıyor
             for (int i = 0; i < num_cities; i++)
                 for (int k = 0; k < num_cities; k++)
                 {
-                    double x = Math.Pow((double)city_list[i].getLocation().X -
-                        (double)city_list[k].getLocation().X, 2.0);
-                    double y = Math.Pow((double)city_list[i].getLocation().Y -
-                        (double)city_list[k].getLocation().Y, 2.0);
-                    DistanceResponseModel model = await ApiServices.ServiceClientInstance.GetDistance(city_list[i].getLocation().X.ToString(), city_list[i].getLocation().Y.ToString(), city_list[k].getLocation().X.ToString(), city_list[k].getLocation().Y.ToString()).ConfigureAwait(false);
+                    //double x = Math.Pow((double)city_list[i].getLocation().X -
+                    //    (double)city_list[k].getLocation().X, 2.0);
+                    //double y = Math.Pow((double)city_list[i].getLocation().Y -
+                    //    (double)city_list[k].getLocation().Y, 2.0);
+                    DistanceResponseModel model = await ApiServices.ServiceClientInstance.GetDistance(city_list[i].getLocation().X.ToString(),
+                        city_list[i].getLocation().Y.ToString(), city_list[k].getLocation().X.ToString(), city_list[k].getLocation().Y.ToString()).ConfigureAwait(false);
                     distances[i, k] = model.Rows.FirstOrDefault().Elements.FirstOrDefault().Distance.Value;
                 }
             StaticClass.Instance.IsBusy = false;
             StaticClass.Instance.IsBusy1 = true;
 
         }
+
+
         /**************************************************************************
-         * initPherom: initialize pheromone levels btwn cities to  a small constant
+         * initPherom: noktalar arasındaki feromon seviyelerini küçük bir sabite başlıyor
          ***************************************************************************/
         private async Task initPherom()
         {
             for (int from = 0; from < num_cities; from++)
             {
                 for (int to = 0; to < num_cities; to++)
-                {//initialize all pheromone btwn cities as a small constant
+                {
                     pheromones[from, to] = 1.0 / (double)num_cities;
                     pheromones[to, from] = 1.0 / (double)num_cities;
                 }
@@ -298,16 +384,8 @@ namespace PratikKargo
 
 
 
-
         /***********************************************************************
-         * backgroundWorker1_RunWorkerCompleted: draw solution based on ACO
-         ***********************************************************************/
-
-
-
-        /***********************************************************************
-         * Calculate: main function that calculates ant movement, 
-         *          evaporation and increment of pheromones
+         * Calculate: karınca hareketini, feromonların buharlaşmasını ve artışını hesaplayan ana fonksiyon
          ***********************************************************************/
         private async Task Calculate()
         {
@@ -317,28 +395,28 @@ namespace PratikKargo
             iterations = 100;
             for (int k = 0; k < iterations; k++)
             {
-                for (int i = 0; i < num_cities; i++)//move ants till they reach the end
-                    if (ants_stop()) //moves ants 1 step & check if all ants finished moving?
+                for (int i = 0; i < num_cities; i++)//karıncalar noktaların hepsini dolanana kadar devam ediyor
+                    if (ants_stop()) //karıncalar turu tamamlayana hareket ediyor ve kontrol ediliyor
                     {
                         evaporatePheromones();
                         updatePheromones();
-                        best_tour();//go through every ant and check if it has optimal solution
-                        initAnts(); // reset ant position and tour
+                        best_tour();//en optimum çözüme sahip olup olmadığı kontrol ediliyor
+                        await initAnts(); // karınca pozisyonları ve turları sıfırlanıyor
                     }
             }
+
         }
 
 
         /********************************************************************************************
-         * goToNextCity: picks next city based on the attractiveness of the path(the pheromones)
-         *              and its visibility (the distance)
+         * goToNextCity: yolun feromon seviyesi ve mesafeye göre bir sonraki şehri seç.
          *********************************************************************************************/
         private void goToNextCity(Ant current_ant)
         {
-            double sum_prob = 0;//denominator in probability function
-            double move_prob = 0;//numerator in probability function
+            double sum_prob = 0;//olasılık fonksiyonunda payda
+            double move_prob = 0;
             int current_city = current_ant.get_current_location();
-            for (int i = 0; i < num_cities; i++)//loop through all cities
+            for (int i = 0; i < num_cities; i++)
             {
                 if (current_ant.haveBeenList[i] == 0)
                 {
@@ -350,41 +428,41 @@ namespace PratikKargo
             int destination_city = 0;
             double rand_move = 0;
             int count = 0;
-            //loops until ant chooses a city
-            while (count < 400)//400 is the threshold for loops
+            //karınca bir şehir seçene kadar döngü devam ediyor 400 eşik değeri 
+            while (count < 400)
             {
-                if (current_ant.haveBeenList[destination_city] == 0)//ant hasnt been to  this city
-                {//calculate probability of movement
+                if (current_ant.haveBeenList[destination_city] == 0)//karınca şehre gelmediyse hareket olasılığını hesapla
+                {
                     move_prob = (Math.Pow(pheromones[current_city, destination_city], ALPHA) *
                         Math.Pow(1.0 / distances[current_city, destination_city], BETA)) / sum_prob;
                     rand_move = rand_gen.NextDouble();
-                    if (rand_move < move_prob) break;//break loop if ant moves to city
+                    if (rand_move < move_prob) break;
                 }
                 destination_city++;
-                if (destination_city >= num_cities) destination_city = 0;//reset city count
+                if (destination_city >= num_cities) destination_city = 0;//şehir sayısını geçerse sıfırla
                 count++;
             }
-            //update next location and tour itinerary
-            current_ant.set_next_location(destination_city);//going to that city
-            current_ant.haveBeenList[destination_city] = 1;//moved to that city
+            //seçilen şehre göre bilgileri güncelle
+            current_ant.set_next_location(destination_city);
+            current_ant.haveBeenList[destination_city] = 1;
             current_ant.tourList[current_ant.tour_number] = destination_city;
             current_ant.tour_number++;
-            //add to current distance
+
             current_ant.update_total_distance(distances[current_ant.get_current_location(), destination_city]);
 
-            //if the ant reached the end, add up the distance for return path
+            //karınca bütün noktaları gezdi ise geri dönüş uzaklıgını da ekle 
             if (current_ant.tour_number == num_cities)
             {
                 current_ant.update_total_distance(
                     distances[current_ant.tourList[num_cities - 1], current_ant.tourList[0]]);
             }
 
-            current_ant.set_current_location(destination_city);//update current city to next city
+            current_ant.set_current_location(destination_city);
         }
 
 
         /************************************************************************************
-         * ants_stop: checks if all the ants have finished moving/reached final destination
+         * ants_stop: tüm karıncalar hedefe ulaştı mı kontrol et
          ************************************************************************************/
         private bool ants_stop()
         {
@@ -392,31 +470,29 @@ namespace PratikKargo
             for (int i = 0; i < num_ants; i++)
             {
                 if (ant_list[i].tour_number < num_cities)
-                {//ants are still in moving
+                {//hangi karınca turu bitirmediyse bitirmesini sağla
                     goToNextCity(ant_list[i]);
                     moved++;
                 }
             }
             if (moved == 0)
             {
-                return true;//ants have finished moving
+                return true;
             }
             else return false;
         }
 
         /************************************************************************************
-         * evaporatePheromones: decreases current pheromones by a factor of (1.0-RHO) so
-         *                   larger values of pheromones would decrease at a higher rate,
-         *                   but this is good, since we want the ants to explore more
+         * evaporatePheromones: feromonları fenomon bozulma hızına(rho) göre azalt
          ************************************************************************************/
         public void evaporatePheromones()
         {
-            //handles both cases of [i,k] and [k,i] so dont need to code pheromones 2x
+
             for (int i = 0; i < num_cities; i++)
                 for (int k = 0; k < num_cities; k++)
                 {
                     pheromones[i, k] *= (1.0 - RHO);
-                    //pheromone levels should always be at base levels
+                    //fenomon başlangıç seviyesinin altına inemez
                     if (pheromones[i, k] < 1.0 / (double)num_cities)
                     {
                         pheromones[i, k] = 1.0 / (double)num_cities;
@@ -427,8 +503,7 @@ namespace PratikKargo
 
 
         /************************************************************************************
-         * updatePheromones: update pheromones along all edges after each ant has completed
-         *                  its tour
+         * updatePheromones: karıncalar turu tamamladıkca noktaların fenomonlarını güncelle
          ************************************************************************************/
         private void updatePheromones()
         {
@@ -436,9 +511,8 @@ namespace PratikKargo
             {
                 for (int k = 0; k < num_cities; k++)
                 {
-                    int from = ant_list[i].tourList[k];//starting point of edge
-                    //if city+1=num_cities, then city is last city and then destination is the starting city
-                    int to = ant_list[i].tourList[((k + 1) % num_cities)];//endpoint of edge
+                    int from = ant_list[i].tourList[k];
+                    int to = ant_list[i].tourList[((k + 1) % num_cities)];//k+1 number nokta sayısına eşitse yeni hedef başlangıc noktası oldugu için başlangıca olan fenomon güncellenir
                     pheromones[from, to] += (double)pherom_const / ant_list[i].getDistance();
                     pheromones[to, from] = pheromones[from, to];
 
@@ -446,13 +520,13 @@ namespace PratikKargo
             }
         }
         /*****************************************************************************
-         * best_tour: updates global tour length with shortest tour length
+         * best_tour: global tur uzunluğunu en kısa tur uzunluğu ile güncelle
          *****************************************************************************/
         private void best_tour()
         {
             double best_local_tour = ant_list[0].getDistance();
             int save_index = 0;
-            for (int i = 1; i < ant_list.Count; i++)//checks the best tour length among this iteration
+            for (int i = 1; i < ant_list.Count; i++)
             {
                 if (ant_list[i].getDistance() < best_local_tour)
                 {
@@ -460,16 +534,11 @@ namespace PratikKargo
                     save_index = i;
                 }
             }
-            //compare best local length with global length and update accordingly
+            //en iyi yerel uzunlugu globalle kıyasla
             if (best_local_tour < best_tour_length || best_tour_length == -1)
             {
                 best_tour_list = ant_list[save_index].tourList;
                 best_tour_length = best_local_tour;
-                //lbl.Text = best_tour_length.ToString()+"    ";
-                for (int i = 0; i < best_tour_list.Count; i++)
-                {
-                    //   lbl.Text += best_tour_list[i].ToString()+"-";
-                }
             }
         }
         private async Task<Location> getLocation()
@@ -506,6 +575,7 @@ namespace PratikKargo
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
 
+
             await Navigation.PushAsync(new MapPage());
 
 
@@ -522,11 +592,12 @@ namespace PratikKargo
             List<City> c = new List<City>(5); // = new CityInfo(int.Parse(this.textBox1.Text));
 
 
-            c.Add(new City(new Point(38.69301742336234, 35.549143170636405)));
-            c.Add(new City(new Point(38.69490153218463, 35.5430599207414)));
-            c.Add(new City(new Point(38.69591474353492, 35.539412116502035)));
-            c.Add(new City(new Point(38.698024856628976, 35.53226671175525)));
-            c.Add(new City(new Point(38.699088263038554, 35.52854380568901)));
+            c.Add(new City(new Point(38, 35),1));
+            c.Add(new City(new Point(343, 335),2));
+            c.Add(new City(new Point(438, 315),3));
+            c.Add(new City(new Point(328, 356),4));
+            c.Add(new City(new Point(380, 935),5));
+          
 
 
 
@@ -558,11 +629,6 @@ namespace PratikKargo
 
         }
 
-        private void OnTabsSizeChanged(object sender, EventArgs e)
-        {
-            TabsLayout.BindingContext = InfoLayout;
-            Tabs.GetType().GetMethod("UpdateStripePosition", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(Tabs, null);
-        }
     }
 
 

@@ -10,6 +10,7 @@ using PratikKargo.ViewModels;
 using Plugin.Geolocator;
 using static PratikKargo.MainPage;
 using System.Globalization;
+using PratikKargo.Model;
 
 namespace PratikKargo
 {
@@ -22,7 +23,10 @@ namespace PratikKargo
         {
             InitializeComponent();
             BindingContext = mapPageVModel = new MapPageViewModel();
+            StaticClass.Instance.IsBusy3 = true;
+
             ApplyMapTheme();
+
         }
 
         private void ApplyMapTheme()
@@ -42,7 +46,10 @@ namespace PratikKargo
             //locator.DesiredAccuracy = 50;
 
 
-            Position position1 = new Position(38.69301742336234, 35.549143170636405);
+            int start = MainPage.best_tour_list[StaticClass.Nokta];
+
+            var startLocation = city_list[start];
+            Position position1 = new Position(startLocation.getLocation().X, startLocation.getLocation().Y);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(position1, Distance.FromMeters(300)));
 
 
@@ -71,8 +78,6 @@ namespace PratikKargo
 
 
 
-
-        int nokta = 0;
         public List<Position> pathcontent = null;
         async void TrackPath_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -139,55 +144,7 @@ namespace PratikKargo
             //}
             //nokta++;
 
-            if ((nokta + 2) != MainPage.best_tour_list.Count)
-            {
-
-                //int start = MainPage.siralama[nokta];
-                //int finish = siralama[nokta + 1];
-                //var startLocation = points[start];
-                //var finishLocation = points[finish];
-
-                int start = MainPage.best_tour_list[nokta];
-                int finish = best_tour_list[nokta + 1];
-                var startLocation = city_list[start];
-                var finishLocation = city_list[finish];
-
-
-
-                pathcontent = await mapPageVModel.LoadRoute(startLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), startLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")));
-
-                map.Polylines.Clear();
-
-                var polyline = new Xamarin.Forms.GoogleMaps.Polyline();
-                polyline.StrokeColor = Color.Black;
-                polyline.StrokeWidth = 3;
-
-                foreach (var p in pathcontent)
-                {
-                    polyline.Positions.Add(p);
-
-                }
-                map.Polylines.Add(polyline);
-
-                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromMiles(0.80f)));
-
-                var pin = new Xamarin.Forms.GoogleMaps.Pin
-                {
-                    Type = PinType.SearchResult,
-                    Position = new Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
-                    Label = "Pin",
-                    Address = "Pin",
-                    Tag = "CirclePoint",
-                    Icon = (Device.RuntimePlatform == Device.Android) ? BitmapDescriptorFactory.FromBundle("CircleImg.png") : BitmapDescriptorFactory.FromView(new Image() { Source = "CircleImg.png", WidthRequest = 25, HeightRequest = 25 })
-
-                };
-                map.Pins.Add(pin);
-
-                nokta++;
-
-            }
-
-
+            await Navigation.PopAsync();
 
         }
 
@@ -224,30 +181,104 @@ namespace PratikKargo
             }
         }
 
-
-
-        private void Start(object sender, EventArgs e)
+   
+        private async void Start(object sender, EventArgs e)
         {
-            var positionIndex = 1;
+            if (buton.Text == "Başla")
+            {
+                StaticClass.Instance.IsBusy3 = false;
 
-            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
-            {
-                if (pathcontent.Count > positionIndex)
+                var positionIndex = 1;
+
+                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
                 {
-                    UpdatePostions(pathcontent[positionIndex]);
-                    positionIndex++;
-                    return true;
-                }
-                else
+                    if (pathcontent.Count > positionIndex)
+                    {
+                        UpdatePostions(pathcontent[positionIndex]);
+                        positionIndex++;
+                        return true;
+                    }
+                    else
+                    {
+                        StaticClass.Instance.IsBusy3 = true;
+
+                        return false;
+                    }
+                });
+                if (pathcontent.Count == positionIndex)
                 {
-                    return false;
+                    pathcontent = null;
                 }
-            });
-            if (pathcontent.Count == positionIndex)
-            {
-                pathcontent = null;
+                var temp = StaticClass.AllCargo.First();
+                StaticClass.AllCargo.Remove(StaticClass.AllCargo.First());
+                StaticClass.Completed.Add(temp);
+
+                if (StaticClass.Nokta==MainPage.best_tour_list.Count-1)
+                {
+                    var temp1 = StaticClass.AllCargo.First();
+                    StaticClass.AllCargo.Remove(StaticClass.AllCargo.First());
+                    StaticClass.Completed.Add(temp1);
+
+                }
+                buton.Text = "Rota Çiz";
             }
+            //--------------------------------------------------------------------------------------------------------
+            else if ((StaticClass.Nokta + 2) <= MainPage.best_tour_list.Count)
+            {
 
+                StaticClass.Instance.IsBusy3 = false;
+
+                //int start = MainPage.siralama[nokta];
+                //int finish = siralama[nokta + 1];
+                //var startLocation = points[start];
+                //var finishLocation = points[finish];
+
+                int start = MainPage.best_tour_list[StaticClass.Nokta];
+                int finish = best_tour_list[StaticClass.Nokta + 1];
+                var startLocation = city_list[start];
+                var finishLocation = city_list[finish];
+
+
+
+                pathcontent = await mapPageVModel.LoadRoute(startLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), startLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().X.ToString(CultureInfo.GetCultureInfo("en-US")), finishLocation.getLocation().Y.ToString(CultureInfo.GetCultureInfo("en-US")));
+
+                map.Polylines.Clear();
+
+                var polyline = new Xamarin.Forms.GoogleMaps.Polyline();
+                polyline.StrokeColor = Color.Black;
+                polyline.StrokeWidth = 3;
+
+                foreach (var p in pathcontent)
+                {
+                    polyline.Positions.Add(p);
+
+                }
+                map.Polylines.Add(polyline);
+
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.GoogleMaps.Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromMiles(0.80f)));
+
+                var pin = new Xamarin.Forms.GoogleMaps.Pin
+                {
+                    Type = PinType.SearchResult,
+                    Position = new Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
+                    Label = "Pin",
+                    Address = "Pin",
+                    Tag = "CirclePoint",
+                    Icon = (Device.RuntimePlatform == Device.Android) ? BitmapDescriptorFactory.FromBundle("CircleImg.png") : BitmapDescriptorFactory.FromView(new Image() { Source = "CircleImg.png", WidthRequest = 25, HeightRequest = 25 })
+
+                };
+                map.Pins.Add(pin);
+
+                StaticClass.Nokta++;
+                buton.Text = "Başla";
+                StaticClass.Instance.IsBusy3 = true;
+
+
+            }
+            else
+            {
+                await DisplayAlert("Completed", "Bütün paketler teslim edildi", "OK");
+            }
 
 
         }
